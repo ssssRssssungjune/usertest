@@ -1,5 +1,5 @@
-//24.11.25 지은 [완료] : SpecialContent 테스트.
-export default function UserContent() {
+//24.11.25 지은 [완료] : MemberContent 테스트.
+export default function MemberContent() {
   return (
     <div>
       <h1>USER 페이지</h1>

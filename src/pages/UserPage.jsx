@@ -7,7 +7,7 @@ import SpecialContent from "../components/user/special/script/SpecialContent";
 import ReservationContent from "../components/user/reservation/script/ReservationContent";
 import CommunityContent from "../components/user/community/script/CommunityContent";
 import PaymentContent from "../components/user/payment/script/PaymentContent";
-import UserContent from "../components/user/user/script/UserContent";
+import MemberContent from "../components/user/member/script/MemberContent";
 
 // 24.11.25 지은 [완료] : 사용자 페이지 경로 테스트.
 export default function UserPage() {
@@ -22,7 +22,7 @@ export default function UserPage() {
         <Route path="reservation" element={<ReservationContent />} />
         <Route path="community" element={<CommunityContent />} />
         <Route path="payment" element={<PaymentContent />} />
-        <Route path="user" element={<UserContent />} />
+        <Route path="user" element={<MemberContent />} />
       </Routes>
     </div>
   );
