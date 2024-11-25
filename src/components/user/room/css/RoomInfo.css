@@ -1,0 +1,45 @@
+.room_info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 99.5%;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    border: 2px solid red;
+}
+
+.room_info p {
+    flex: 1 1 auto;;
+    width: auto;
+    height: 25px;
+    font-size: 13px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    margin: 5px;
+    border-radius: 4px;
+    border: 2px solid orange;
+
+}
+
+.room_info p:nth-child(1) {
+    width: 100%;
+    color: red;
+    font-weight: bold;
+}
+
+.room_info p:nth-child(2) {
+    width: 100%;
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+}
+
+.room_info strong {
+    margin-right: 5px;
+    color: black;
+    font-weight: bold;
+    border: 1px solid blue
+}

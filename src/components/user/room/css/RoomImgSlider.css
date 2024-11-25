@@ -1,0 +1,25 @@
+/* Room_ImgSlider.css */
+.carousel {
+    width: 99.5%; /* Room_Info와 동일한 너비 */
+    max-width: 600px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    overflow: hidden; /* 넘치는 부분 숨기기 */
+}
+
+.carousel-item img {
+    width: 100%; /* 슬라이더의 너비에 맞게 이미지 크기 조정 */
+    height: auto; /* 비율 유지 */
+    object-fit: cover; /* 이미지 비율 유지하면서 잘림 방지 */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* 컨트롤 아이콘 배경색 */
+    border-radius: 50%; /* 둥글게 */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* 컨트롤 버튼 너비 */
+}
