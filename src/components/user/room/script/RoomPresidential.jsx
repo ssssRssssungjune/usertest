@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-//24.11.25 지은 [완료] : RoomContent 테스트.
-export default function RoomContent() {
+export default function RoomPresidential() {
   return (
     <nav className="RoomView_container">
       <h2>RoomView</h2>

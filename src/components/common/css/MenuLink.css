@@ -1,9 +1,12 @@
-/* AboutContent.css */
-h2{
-  font-size: large;
-  color: grba(255,255 ,255,0.7);
+/* MenuLink style */
+.menu_container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  
 }
-.About_list{
+.menu_list{
   position: absolute;
   width: 80%;
   height: 80%;
@@ -13,7 +16,7 @@ h2{
   border: 1px solid rgba(255,255,255,0.8);
   
 }
-.About_list li{
+.menu_list li{
   margin:50px 10px ;
   color: rgba(255,255,255,0.6);
   font-size:50px;
@@ -21,4 +24,8 @@ h2{
   text-align: center;
   align-items: center
   ;
+}
+.menu_list li a:hover {
+  color: rgba(255,255,255,0.6);
+  font-weight: bold;
 }

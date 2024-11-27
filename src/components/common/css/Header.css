@@ -1,0 +1,121 @@
+/* Header style  */
+#Header {
+  width: 100%;
+  background-color: #252525;
+  color:#fff;
+  border-bottom: 2px solid #ccc;
+  overflow: hidden; /* 자식 요소의 높이에 따라 자동 확장 */
+  transition: height 0.5s ease; /* 높이 변화 시 부드럽게 전환 */
+  border: 1px solid #050b1d;
+  /* 추가  */
+ 
+}
+.header_container {
+  max-width: 1200px; /* 중앙 정렬을 위한 최대 너비 */
+  margin: 0 auto;
+  color:#fff;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #194cf5;
+  /* 추가  */
+  align-items: center;
+  padding: 10px;
+}
+
+.header_title{
+  margin-left: 10px;
+  font-size: 30px;
+  flex: 1;
+  border: 1px solid #fd2c2c;
+}
+
+.header_menu_navbar {
+  /* width: 30%; */
+  flex: 2;
+  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+     border: 1px solid #2ff06f;
+}
+.header_menu_navbar ul{
+  border: 1px solid #e6f846;
+  display: flex;
+  gap: 20px; /* 각 항목 간 간격 */
+
+
+}
+.header_menu_navbar li{
+  
+  font-size: small;
+  border: 1px solid #f17929;
+
+}
+.header_item_menu{
+  margin-right: 10px;
+  flex: 1; /* 플렉스 컨테이너에서 추가 공간 채우기 */
+  text-align: right; /* 텍스트를 오른쪽 정렬 */
+  border: 1px solid #fc5dd9;
+  margin-right: 10px;
+
+}
+/* 드롭다운 메뉴 숨기기 */
+.nav_item {
+  /* list-style: none;
+  margin: 0;
+  padding: 0; 수정 */
+
+  /* 추가 */
+
+  position: relative;
+  text-align: center;
+}
+
+.nav_item > li {
+  margin: 5px 0;
+}
+
+/* li 숨기기 */
+.nav_item li {
+  display: none; /* 기본적으로 숨김 */
+  /* 추가 */
+  position: absolute;
+  top: 100%; /* 부모 요소 아래에 나타나도록 설정 */
+  left: 50%; /* 부모 요소의 중앙에서 시작 */
+  transform: translateX(-50%); /* 중앙 정렬 (X축 기준) */
+
+  padding: 5px 10px; /* 여백 */
+  z-index: 10; /* 다른 요소 위로 표시 */
+  width: 150px; /* 드롭다운 메뉴의 고정 너비 */
+  border: 1px solid #fc8231; /* 테두리 */
+  border-radius: 4px; /* 둥근 모서리 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+.nav_item li:not(:first-child) {
+margin-top: 5px; /* 첫 번째 li를 제외한 모든 li에 간격 추가 */
+}
+
+/* 드롭다운 메뉴 활성화 */
+.nav_item:hover li {
+  display: block; /* ul에 마우스를 올리면 모든 li가 보임 */
+  /* 추가 */
+
+  
+}
+
+/* 드롭다운 메뉴 스타일 */
+.nav_item li a {
+  display: block;
+  padding:  0 5px ;
+  text-decoration: none;
+  color: #999;
+  /* background-color: #fff;
+  border: 1px solid #ccc; */
+  border-radius: 4px;
+  margin:  0;
+  transition: background-color 0.5s ease;
+}
+
+.nav_item li a:hover {
+  /* background-color: #f0f0f0; */
+  color:#fff;
+}

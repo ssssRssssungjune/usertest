@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CommunityContent() {
+export default function CommunityNotice() {
   return (
     <nav className="Community_container">
       <h2>Community</h2>
