@@ -1,30 +1,30 @@
-import ButtonEx from "./ButtonEx";
+import { Link } from "react-router-dom";
 
 //24.11.12 지은 [완료] : ButteonEx 적용 테스트.
 export default function Header() {
   return (
     <div>
-      <ButtonEx id={"home"} url={"/"}>
+      <Link to="/">
         <p>로고(홈)</p>
-      </ButtonEx>
-      <ButtonEx id={"about"} url={"/about"}>
-        <p>About</p>
-      </ButtonEx>
-      <ButtonEx id={"room"} url={"/room"}>
-        <p>Room View</p>
-      </ButtonEx>
-      <ButtonEx id={"special"} url={"/special"}>
-        <p>Special</p>
-      </ButtonEx>
-      <ButtonEx id={"reservation"} url={"/reservation"}>
-        <p>Reservation</p>
-      </ButtonEx>
-      <ButtonEx id={"community"} url={"/community"}>
-        <p>Community</p>
-      </ButtonEx>
-      <ButtonEx id={"user"} url={"/user"}>
-        <p>User</p>
-      </ButtonEx>
+      </Link>
+      <Link to="/about">
+        <p>about</p>
+      </Link>
+      <Link to="/room">
+        <p>room</p>
+      </Link>
+      <Link to="/special">
+        <p>special</p>
+      </Link>
+      <Link to="/reservation">
+        <p>reservation</p>
+      </Link>
+      <Link to="/community">
+        <p>community</p>
+      </Link>
+      <Link to="/user">
+        <p>user</p>
+      </Link>
     </div>
   );
 }

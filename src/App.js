@@ -1,15 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UserPage from "./pages/UserPage";
+import { RouterProvider } from "react-router-dom";
+import RouterObject from "./util/router";
 
-//24.11.25 지은 [완료] : Router, Routes, Route 적용 테스트
+//24.11.27 지은 [완료] : react-router-dom 신기능 CreateBorwserRouter 적용 
 function App() {
-  return (
-    <BrowserRouter basename="/" future={{ v7_startTransition: true }}>
-      <Routes>
-        <Route path="/*" element={<UserPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={RouterObject} />;
 }
 
 export default App;
