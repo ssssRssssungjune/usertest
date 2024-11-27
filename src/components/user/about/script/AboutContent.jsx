@@ -4,13 +4,10 @@ import '../css/AboutContent.css';
 export default function AboutContent() {
   return (
     <nav className="About_container">
-      <h2>About</h2>
+      <h2>호텔소개</h2>
       <ul className='About_list'>
         <li>
-          <Link to ="/Notice">Notice</Link>
-        </li>
-        <li>
-          <Link to ="/Q&A">Q&A</Link>
+          <Link to ="/about">호텔소개</Link>
         </li>
       </ul>
     </nav>

@@ -13,7 +13,7 @@ export default function Header() {
           <ul className="nav_item">
             About
             <li className="dropdown">
-              <Link to="/about">About</Link>
+              <Link to="/about">호텔소개</Link>
             </li>
           </ul>
           <ul className="nav_item">
