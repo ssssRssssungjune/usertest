@@ -1,14 +1,28 @@
 import './css/Header.css';
 import { Link } from "react-router-dom";
+import backgroundImage from '../../assets/images/headerBackground.jpg';
 
 export default function Header() {
   return (
     <div id="Header">
-      <div className="header_container">
+      <div
+  className="header_container"
+  style={{
+    '--background-image': `url(${backgroundImage})`,
+  }}
+>console.log(`url(${backgroundImage})`);
+
+{/* //   style={{
+//     backgroundImage: `url(${backgroundImage})`,
+//     backgroundSize: 'cover',
+//     backgroundPosition: 'center',
+//     height:"100vh",
+//     opacity: 0.8,
+//   }}
+// > */}
         <h1 className="header_title">
           <Link to="/main">slrklhiHOTEL</Link>
         </h1>
-
         <div className="header_menu_navbar">
           <ul className="nav_item">
             About
@@ -64,11 +78,11 @@ export default function Header() {
               <Link to="/community">Q&A</Link>
             </li>
           </ul>
+          </div>
           <div className="header_item_menu">
             {/* Menu 버튼 클릭 시 MenuLink로 이동 */}
             <Link to="/menu">Menu</Link>
           </div>
-        </div>
       </div>
     </div>
   );

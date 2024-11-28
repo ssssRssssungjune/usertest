@@ -1,121 +1,178 @@
-/* Header style  */
-#Header {
-  width: 100%;
-  background-color: #252525;
-  color:#fff;
-  border-bottom: 2px solid #ccc;
-  overflow: hidden; /* 자식 요소의 높이에 따라 자동 확장 */
-  transition: height 0.5s ease; /* 높이 변화 시 부드럽게 전환 */
-  border: 1px solid #050b1d;
-  /* 추가  */
- 
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
 }
-.header_container {
-  max-width: 1200px; /* 중앙 정렬을 위한 최대 너비 */
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl, dd {
+  margin-block-end: 0;
+}
+/* 한택님 추가 코드  */
+.row-cols-7>*{flex:0 0 auto;width:14.28571428%}
+
+/* ---------------------------------------------- */
+/* 헤더 스타일  */
+#Header{
+  color: #fff;
+  border: 3px solid #d86b6b;
+  height: 100vh;
+  /* 상단 배치  */
+  display: flex;
+  justify-content: space-between; 
+  
+  /* padding: 10px 20px; */
+} 
+/* 배경 이미지  */
+
+/* .header_container{
+  max-width: 1200px;
   margin: 0 auto;
-  color:#fff;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #194cf5;
-  /* 추가  */
   align-items: center;
-  padding: 10px;
+  position: relative; 
+  z-index: 1; 
+  border: 1px solid #f5f373;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+} */
+.header_container {
+
+  position: relative; /* ::before 가상 요소를 위한 relative 설정 */
+  height: 100vh; /* 브라우저 전체 높이 */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden; /* 필요 시 초과 내용 숨김 */
+  color: #fff; /* 텍스트 색상 */
+  z-index: 1; /* 콘텐츠가 배경 위로 오도록 설정 */
 }
+
+/* 배경 이미지 설정 */
+.header_container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--background-image); /* React에서 전달된 이미지 */
+  background-size: cover; /* 배경 크기 조정 */
+  background-position: center; /* 배경 중앙 정렬 */
+  background-repeat: no-repeat; /* 반복 방지 */
+  opacity: 0.7; /* 배경 투명도 */
+  z-index: -1; /* 배경 요소를 콘텐츠 뒤로 */
+}
+
+
 
 .header_title{
-  margin-left: 10px;
-  font-size: 30px;
-  flex: 1;
-  border: 1px solid #fd2c2c;
+  top: 30px;
+  border: 1px solid #ae3bf0;
 }
 
-.header_menu_navbar {
-  /* width: 30%; */
-  flex: 2;
-  gap: 30px;
+.header_menu_navbar{
   display: flex;
-  justify-content: space-between;
-     border: 1px solid #2ff06f;
+  gap: 20px;
+  border: 1px solid #7b7dff;
 }
-.header_menu_navbar ul{
-  border: 1px solid #e6f846;
-  display: flex;
-  gap: 20px; /* 각 항목 간 간격 */
-
-
-}
-.header_menu_navbar li{
+.nav_item{
   
-  font-size: small;
-  border: 1px solid #f17929;
+  border: 1px solid #53ff6a;
+}
+.nav_item :hover{
 
 }
-.header_item_menu{
-  margin-right: 10px;
-  flex: 1; /* 플렉스 컨테이너에서 추가 공간 채우기 */
-  text-align: right; /* 텍스트를 오른쪽 정렬 */
-  border: 1px solid #fc5dd9;
-  margin-right: 10px;
-
-}
-/* 드롭다운 메뉴 숨기기 */
-.nav_item {
-  /* list-style: none;
-  margin: 0;
-  padding: 0; 수정 */
-
-  /* 추가 */
-
-  position: relative;
-  text-align: center;
-}
-
-.nav_item > li {
-  margin: 5px 0;
-}
-
-/* li 숨기기 */
 .nav_item li {
-  display: none; /* 기본적으로 숨김 */
-  /* 추가 */
-  position: absolute;
-  top: 100%; /* 부모 요소 아래에 나타나도록 설정 */
-  left: 50%; /* 부모 요소의 중앙에서 시작 */
-  transform: translateX(-50%); /* 중앙 정렬 (X축 기준) */
-
-  padding: 5px 10px; /* 여백 */
-  z-index: 10; /* 다른 요소 위로 표시 */
-  width: 150px; /* 드롭다운 메뉴의 고정 너비 */
-  border: 1px solid #fc8231; /* 테두리 */
-  border-radius: 4px; /* 둥근 모서리 */
-  text-align: center; /* 텍스트 중앙 정렬 */
+   display: none;
+  border: 1px solid #ff7bae;
 }
-.nav_item li:not(:first-child) {
-margin-top: 5px; /* 첫 번째 li를 제외한 모든 li에 간격 추가 */
+.nav_item li:hover{
+
 }
 
-/* 드롭다운 메뉴 활성화 */
-.nav_item:hover li {
-  display: block; /* ul에 마우스를 올리면 모든 li가 보임 */
-  /* 추가 */
 
-  
+.header_item_menu{
+
+  border: 1px solid #f749df;
 }
 
-/* 드롭다운 메뉴 스타일 */
-.nav_item li a {
-  display: block;
-  padding:  0 5px ;
-  text-decoration: none;
-  color: #999;
-  /* background-color: #fff;
-  border: 1px solid #ccc; */
-  border-radius: 4px;
-  margin:  0;
-  transition: background-color 0.5s ease;
-}
-
-.nav_item li a:hover {
-  /* background-color: #f0f0f0; */
-  color:#fff;
-}
