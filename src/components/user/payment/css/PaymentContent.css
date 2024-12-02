@@ -1,1 +1,19 @@
 /* ReservationContent.css */
+#container_payment {
+  width: 100%;
+  padding: 50px 20px;
+  margin: 50px 0;
+  border: 1px solid red;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#container_payment .title {
+  margin-bottom: 20px;
+}
+#container_payment .select-payments {
+  margin-top: 80px;
+}
+#container_payment .form-check {
+  display: inline-block;
+  margin-bottom: 20px;
+}
