@@ -1,0 +1,53 @@
+/*회원가입 페이지*/
+
+.signup-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.signup-page h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.signup-page p {
+    font-size: 14px;
+    color: #737373;
+    margin-bottom: 20px;
+}
+
+.signup-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.signup-image {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
+}
+
+.rewards-signup-button {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid #000;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.sns-button {
+    background-color: #ffe812;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
