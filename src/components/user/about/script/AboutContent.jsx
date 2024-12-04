@@ -1,9 +1,15 @@
-//24.11.25 지은 [완료] : AboutContent 테스트.
+import { Link } from 'react-router-dom';
+import '../css/AboutContent.css';
+
 export default function AboutContent() {
   return (
-    <div>
-      <h1>호텔 소개</h1>
-      <div>호텔 소개 페이지가 하위 컴포넌트식으로 들어갈 예정</div>
-    </div>
+    <nav className="About_container">
+      <h2>호텔소개</h2>
+      <ul className='About_list'>
+        <li>
+          <Link to ="/about">호텔소개</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }

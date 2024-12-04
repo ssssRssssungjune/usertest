@@ -1,0 +1,178 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl, dd {
+  margin-block-end: 0;
+}
+/* 한택님 추가 코드  */
+.row-cols-7>*{flex:0 0 auto;width:14.28571428%}
+
+/* ---------------------------------------------- */
+/* 헤더 스타일  */
+#Header{
+  color: #fff;
+  border: 3px solid #d86b6b;
+  height: 100vh;
+  /* 상단 배치  */
+  display: flex;
+  justify-content: space-between; 
+  
+  /* padding: 10px 20px; */
+} 
+/* 배경 이미지  */
+
+/* .header_container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; 
+  z-index: 1; 
+  border: 1px solid #f5f373;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+} */
+.header_container {
+
+  position: relative; /* ::before 가상 요소를 위한 relative 설정 */
+  height: 100vh; /* 브라우저 전체 높이 */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden; /* 필요 시 초과 내용 숨김 */
+  color: #fff; /* 텍스트 색상 */
+  z-index: 1; /* 콘텐츠가 배경 위로 오도록 설정 */
+}
+
+/* 배경 이미지 설정 */
+.header_container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--background-image); /* React에서 전달된 이미지 */
+  background-size: cover; /* 배경 크기 조정 */
+  background-position: center; /* 배경 중앙 정렬 */
+  background-repeat: no-repeat; /* 반복 방지 */
+  opacity: 0.7; /* 배경 투명도 */
+  z-index: -1; /* 배경 요소를 콘텐츠 뒤로 */
+}
+
+
+
+.header_title{
+  top: 30px;
+  border: 1px solid #ae3bf0;
+}
+
+.header_menu_navbar{
+  display: flex;
+  gap: 20px;
+  border: 1px solid #7b7dff;
+}
+.nav_item{
+  
+  border: 1px solid #53ff6a;
+}
+.nav_item :hover{
+
+}
+.nav_item li {
+   display: none;
+  border: 1px solid #ff7bae;
+}
+.nav_item li:hover{
+
+}
+
+
+.header_item_menu{
+
+  border: 1px solid #f749df;
+}
+
