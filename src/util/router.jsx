@@ -8,6 +8,10 @@ import CommunityContent from "../components/user/community/script/CommunityConte
 import PaymentContent from "../components/user/payment/script/PaymentContent";
 import MemberContent from "../components/user/member/script/MemberContent";
 import AboutContent from "../components/user/about/script/AboutContent";
+import ReservationGuide from "../components/user/reservation/script/ReservationGuide";
+import ReservationCheckOut from "../components/user/reservation/script/ResevationCheckOut";
+import ReservationCalendar from "../components/user/reservation/script/ReservationCalendar";
+import ReservationForm from "../components/user/reservation/script/ReservationForm";
 
 export const RouterInfo = [
   {
@@ -33,6 +37,34 @@ export const RouterInfo = [
       {
         path: "reservation",
         element: <ReservationContent />,
+        children: [
+          {
+            path: "",
+            element: <Navigate to="guide" />
+          },
+          {
+            path: "guide",
+            element: <ReservationGuide/>
+          },
+          {
+            path: "check_out",
+            element: <ReservationCheckOut/>,
+            children: [
+              {
+                path: "",
+                element: <Navigate to="calendar" />
+              },
+              {
+                path: "calendar",
+                element: <ReservationCalendar/>
+              },
+              {
+                path: "form",
+                element: <ReservationForm/>
+              }
+            ]
+          }
+        ]
       },
       {
         path: "community",
