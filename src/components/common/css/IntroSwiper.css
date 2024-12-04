@@ -168,7 +168,7 @@
 #HomeIntro {
   position: relative;
   max-width: 100vw;
-  height: 100vh; /* 화면 높이에 맞게 설정 */
+  height: 100vh; 
   margin: 0 auto;
   border: 1px solid #000;
 }

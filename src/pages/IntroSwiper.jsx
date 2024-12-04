@@ -13,7 +13,7 @@ import '../components/common/css/IntroSwiper.css';
 
 //24.11.25 지은 [수정완료] : 풀스크린 페이지, Header 컴포넌트 삭제 후 정상작동 테스트 완료.
 export default function IntroSwiper() {
-  const swiperRef = useRef(null); // useRef를 활용
+  const swiperRef = useRef(null); 
   const navigateToSlide = (index) => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(index);
@@ -65,7 +65,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide1">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="/videos/city fly view.mp4" type="video/mp4" />
+              <source src="" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan">Welcome to Slrklhi Hotel</h1>
             <p className="intro_description">
@@ -78,7 +78,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide2">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="/videos/city inside1.mp4" type="video/mp4" />
+              <source src="../assets/videos/city inside1.mp4" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan2">Modern Comforts, Natural Escapes</h1>
             <p className="intro_description2">
@@ -91,7 +91,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide3">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="/videos/city lettering view.mp4" type="video/mp4" />
+              <source src="../assets/videos/city lettering view.mp4" type="video/mp4" />
             </video>
             <p className="intro_description3">
               Discover the best of Slrklhi in a modern, stylish, and comfortable environment.
@@ -103,7 +103,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide4">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="/videos/city night2.mp4" type="video/mp4" />
+              <source src="../assets/videos/city night2.mp4" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan4">Urban Sophistication, Coastal Tranquility</h1>
             <p className="intro_description4">

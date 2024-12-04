@@ -12,7 +12,7 @@ import AboutContent from "../components/user/about/script/AboutContent";
 export const RouterInfo = [
   {
     path: "/",
-    element: <UserPage />, // UserPage가 기본 페이지로 설정됨
+    element: <UserPage />, //  경로에서 UserPage를 기본으로 렌더링
     children: [
       {
         index: true, // / 경로로 접속했을 때 FullScreenPage가 표시됨
