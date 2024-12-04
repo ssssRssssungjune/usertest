@@ -4,6 +4,7 @@ import './components/common/css/reset.css';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+// import './components/common/css/Header.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
