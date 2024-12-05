@@ -65,7 +65,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide1">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="" type="video/mp4" />
+              <source src="../" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan">Welcome to Slrklhi Hotel</h1>
             <p className="intro_description">
