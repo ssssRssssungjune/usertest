@@ -7,7 +7,7 @@ import CommunityContent from "../components/user/community/script/CommunityConte
 import PaymentContent from "../components/user/payment/script/PaymentContent";
 import MemberContent from "../components/user/member/script/MemberContent";
 import AboutContent from "../components/user/about/script/AboutContent";
-import IntroSwiper from "../pages/IntroSwiper";
+import IntroSwiper from "../pages/IntroSwiper"; // 경로 수정
 import ReservationInfo from "../components/user/reservation/script/ReservationInfo";
 import ReservationRealTime from "../components/user/reservation/script/ReservationRealTime";
 import CommunityNotice from "../components/user/community/script/CoummunityNotice";
@@ -16,12 +16,16 @@ import RoomPresidential from "../components/user/room/script/RoomPresidential";
 import RoomFamily from "../components/user/room/script/RoomFamily";
 import RoomSuite from "../components/user/room/script/RoomSuite";
 import RoomDeluxe from "../components/user/room/script/RoomDeluxe";
-import MenuLink from "../components/common/MenuLink";
+import MenuLink from "../pages/MenuLink"; 
 
 export const RouterInfo = [
   {
     path: "/main",
     element: <IntroSwiper />, // IntroSwiper 페이지
+  },
+  {
+    path: '/menu',
+    element: <MenuLink />, // Header/Footer 없는 페이지
   },
   {
     path: "/",
@@ -93,13 +97,11 @@ export const RouterInfo = [
         path: "user",
         element: <MemberContent />,
       },
-      {
-        path: "menu",
-        element: <MenuLink />,
-      },
+    
     ],
   },
 ];
+
 // createBrowserRouter로 RouterObject 생성
 const RouterObject = createBrowserRouter(RouterInfo);
 
