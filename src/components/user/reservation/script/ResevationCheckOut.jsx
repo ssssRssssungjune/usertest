@@ -1,4 +1,4 @@
-import { toDate } from "date-fns";
+import { toDate, setMonth } from "date-fns";
 import { useEffect, useState } from "react";
 import { Outlet, useOutletContext } from "react-router-dom";
 import { customFetch } from "../../../../util/customFetch";
@@ -53,29 +53,37 @@ function ReservationCheckOut(){
     },[selectedTimestamp]);
 
     function onClickPrevButtton(){
-        const prevMonth = selectedYearAndMonth;
+        // const prevMonth = selectedYearAndMonth;
 
-        setSelectedYearAndMonth({
-            year : prevMonth.month-1 > 0 ? prevMonth.year : prevMonth.year-1,
-            month : prevMonth.month-1 > 0 ? prevMonth.month-1 : 12
-        });
+        // setSelectedYearAndMonth({
+        //     year : prevMonth.month-1 > 0 ? prevMonth.year : prevMonth.year-1,
+        //     month : prevMonth.month-1 > 0 ? prevMonth.month-1 : 12
+        // });
+        const prevMonth = toDate(selectedTimestamp, { timeZone: 'Asia/Seoul' });
+
+        const newDate = setMonth(prevMonth, prevMonth.getMonth() - 1);
+        setSelectedTimestamp(newDate);  // selectedTimestamp만 수정
     }
 
     function onClickNextButtton(){
-        const nextMonth = selectedYearAndMonth;
+        // const nextMonth = selectedYearAndMonth;
 
-        setSelectedYearAndMonth({
-            year : nextMonth.month+1 <= 12 ? nextMonth.year : nextMonth.year+1,
-            month : nextMonth.month+1 <= 12 ? nextMonth.month+1 : 1
-        });
+        // setSelectedYearAndMonth({
+        //     year : nextMonth.month+1 <= 12 ? nextMonth.year : nextMonth.year+1,
+        //     month : nextMonth.month+1 <= 12 ? nextMonth.month+1 : 1
+        // });
+        const nextMonth = toDate(selectedTimestamp, { timeZone: 'Asia/Seoul' });
+
+        const newDate = setMonth(nextMonth, nextMonth.getMonth() + 1);
+        setSelectedTimestamp(newDate);  // selectedTimestamp만 수정
     }
 
     return(
         <div className={'container text-container'}>
-            <div>
-                <ButtonEx id='prev' className='btn' action={onClickPrevButtton}>{'<'}</ButtonEx>
-                <h2>{`${selectedYearAndMonth.year}년 ${selectedYearAndMonth.month}월`}</h2>
-                <ButtonEx id='next' className='btn' action={onClickNextButtton}>{'>'}</ButtonEx>
+            <div className="row justify-content-md-center">
+                <ButtonEx id='prev' className='btn col col-lg-2' action={onClickPrevButtton}>{'<'}</ButtonEx>
+                <h1 className='col-md-auto'>{`${selectedYearAndMonth.year}년 ${selectedYearAndMonth.month}월`}</h1>
+                <ButtonEx id='next' className='btn col col-lg-2' action={onClickNextButtton}>{'>'}</ButtonEx>
             </div>
             {loadComplete && <Outlet 
                 context={{
@@ -83,7 +91,7 @@ function ReservationCheckOut(){
                     reservationData: reservationSummary,
                     selectedYearAndMonth: selectedYearAndMonth,
                     selectedTimestamp: selectedTimestamp,
-                    setSelectedTimestamp: (e)=>setSelectedTimestamp(e)
+                    setSelectedTimestamp: (timestamp)=>setSelectedTimestamp(timestamp)
                 }} 
             />}
         </div>
