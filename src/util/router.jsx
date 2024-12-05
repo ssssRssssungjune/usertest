@@ -1,6 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter ,Navigate} from "react-router-dom";
 import UserPage from "../pages/UserPage";
-import FullScreenPage from "../pages/FullScreenPage";
 import RoomContent from "../components/user/room/script/RoomContent";
 import SpecialContent from "../components/user/special/script/SpecialContent";
 import ReservationContent from "../components/user/reservation/script/ReservationContent";
@@ -12,16 +11,23 @@ import ReservationGuide from "../components/user/reservation/script/ReservationG
 import ReservationCheckOut from "../components/user/reservation/script/ResevationCheckOut";
 import ReservationCalendar from "../components/user/reservation/script/ReservationCalendar";
 import ReservationForm from "../components/user/reservation/script/ReservationForm";
+import MenuLink from "../pages/MenuLink"; 
+import IntroSwiper from "../pages/IntroSwiper";
 
 export const RouterInfo = [
+  {
+    path: "/main",
+    element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+  },
+  {
+    path: "/menu",
+    element: <MenuLink />, // Header/Footer 없는 페이지
+  },
   {
     path: "/",
     element: <UserPage />, //  경로에서 UserPage를 기본으로 렌더링
     children: [
-      {
-        index: true, // / 경로로 접속했을 때 FullScreenPage가 표시됨
-        element: <FullScreenPage />,
-      },
+     
       {
         path: "about",
         element: <AboutContent />,
