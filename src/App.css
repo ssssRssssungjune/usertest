@@ -123,4 +123,7 @@ dl, dd {
   margin-block-end: 0;
 }
 /* 한택님 추가 코드  */
-.row-cols-7>*{flex:0 0 auto;width:14.28571428%}
+.row-cols-7>*{
+  flex:0 0 auto !important;
+  width:14.28571428% !important;
+}
