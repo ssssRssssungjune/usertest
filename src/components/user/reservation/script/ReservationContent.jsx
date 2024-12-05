@@ -1,17 +1,54 @@
-import { Link } from "react-router-dom";
-
+import { Outlet , useOutletContext } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { customFetch } from "../../../../util/customFetch";
+//24.11.25 지은 [완료] : ReservationContent 테스트.
 export default function ReservationContent() {
+  const [loadContentComplete,setLoadComplete] = useState(false);
+
+  // public class CountTypeDto {
+  //   private Integer roomTypeId;
+  //   private String name;
+  //   private String description;
+  //   private Integer baseOccupancy;
+  //   private Integer maxOccupancy;
+  //   private BigDecimal basePrice;
+  //   private Integer roomCount;
+  // }
+  const [roomData, setRoomData] = useState([
+    {
+        roomTypeId : 0,
+        name : "",
+        description : "",
+        baseOccupancy : 0,
+        maxOccupancy : 0,
+        basePrice : 0,
+        roomCount : 0
+    },
+  ]);
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      const res = await customFetch("http://localhost:8080/api/admin/rooms/types/count");
+      if (res !== null){
+        setRoomData(res);
+        setLoadComplete(true);
+      }
+    };
+    setLoadComplete(false);
+    fetchData();
+  },[])
+
   return (
-    <nav className="Reservation_container">
-      <h2>Reservation</h2>
-      <ul className='Reservation_list'>
-        <li>
-          <Link to ="/reservation/reservation-info">예약안내</Link>
-        </li>
-        <li>
-          <Link to ="/reservation/real-time-reservation">실시간예약</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+    {
+      loadContentComplete && 
+          <Outlet 
+            context={{
+              roomData: roomData
+            }} 
+          />
+    }
+    </>
   );
 }
+
