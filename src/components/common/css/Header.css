@@ -1,87 +1,55 @@
-/* 헤더 스타일 */
 
+/* 반응형 헤더스타일  */
 #header {
   width: 100%; 
-  height: 100vh; 
+  height:200px; 
   color: #fff;
-  border-bottom: 2px solid #ccc;
+  /* border-bottom: 2px solid #ccc; */
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
-  /* border: 5px solid #eba2f5; */
-}
-.header_title, .header_menu_navbar,.header_item_menu {
-  margin-top: 20px;
-  display: flex; 
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6); 
-  padding: 10px; 
-
+  z-index: 10;
 }
 
-/* 배경 이미지에만 투명도 적용 */
-#header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../../assets/images/headerBackground.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(60%); 
-  z-index: -2;
+.header_title, .header_menu_navbar, .header_item_menu {
+  background-color: rgba(10, 10, 10, 0.5);
+  padding: 10px;
 }
 
 .header_title {
   width: 20%;
   height: 190px;
-  margin: 20px 0 0 10px;
+  margin: 10px 0 0 ;
   font-size: 30px;
-  border: 1px solid #fd2c2c;
   display: flex;
-  /* z-index: 1; */
+}
+.header_title :hover{
+  font-size: 35px;
 }
 
 .header_menu_navbar {
   width: 60%;
-  margin-top: 10; /* 추가: 위쪽 여백 제거 */
-  display: flex;
+  margin-top: 10px;
   height: 190px;
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid #2ff06f;
-}
-
-.header_menu_navbar ul {
-  border: 1px solid #e6f846;
-}
-
-.header_menu_navbar li {
-  font-size: 13px;
-  /* border: 1px solid #f17929; */
+  z-index: 1002;
 }
 
 .header_item_menu {
   width: 20%;
   height: 190px;
   display: flex;
-  justify-content: flex-end; 
-  border: 1px solid #fc5dd9;
+  justify-content: flex-end;
 }
 
 .header_item_menu a {
   margin-right: 50px;
-
 }
-.header_item_menu :hover {
-/* font-weight: bold; */
-font-size: 17px;
 
+.header_item_menu:hover {
+  font-size: 17px;
 }
 
 /* 드롭다운 메뉴 숨기기 */
@@ -90,47 +58,48 @@ font-size: 17px;
   text-align: center;
 }
 
-.nav_item :hover {
+.nav_item:hover {
   font-size: 15px;
 }
-/* li 숨기기 */
+
 .nav_item li {
   transition: opacity 0.3s ease-in-out; 
   display: none;
-  margin-top: 5px; 
+  margin-top: 5px;
   padding: 10px;
-  z-index: 10;
+  z-index: 1003;
   left: 50%;
 }
-  
- /* 드롭다운 문제 해결 1차 수정 .nav_item li */
-.nav_item >li {
-  position: absolute; 
-  top: 5%; /* 부모 아래쪽에 위치 */
-  left: 50%; /* 부모 요소의 중심에 위치 */
-  transform: translateX(-50%); 
-  display: none; 
-  z-index: 10;
-  white-space: nowrap; 
+
+.nav_item > li {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  z-index: 1003;
+  white-space: nowrap;
 }
+
 .nav_item li:nth-child(2) {
-  top: 40px; 
+  top: 50px;
 }
 
 .nav_item li:nth-child(3) {
-  top: 80px; 
+  top: 75px;
 }
+
 .nav_item li:nth-child(4) {
-  top: 110px;
+  top: 105px;
 }
+
 .nav_item li:nth-child(5) {
-  top: 140px;
+  top: 135px;
 }
 
 /* 드롭다운 메뉴 활성화 */
 .nav_item:hover li {
   display: block;
-
 }
 
 /* 드롭다운 메뉴 스타일 */
@@ -138,121 +107,86 @@ font-size: 17px;
   padding: 0 5px;
   color: #999;
   margin: 0;
-  transition: background-color 0.5s ease;
+  transition: background-color 0.8s ease;
 }
 
 .nav_item li a:hover {
   color: #fff;
-
-
 }
 
+/* 미디어 쿼리 - 600px 이하 */
+@media (max-width: 600px) {
+  #header {
+    flex-direction: column; 
+    height: auto; 
+  }
+
+  .header_title, .header_menu_navbar, .header_item_menu {
+    width: 100%; 
+    /* margin: 10px 0;  */
+    align-items: center;
+    transform: translateY(-10px); 
+    box-shadow: 0 36px 36px 0 rgba(90, 90, 90, 0.2);
+    border-radius: 20px;
+  }
+
+  .header_menu_navbar {
+    flex-direction: column;
+  }
+  .header_item_menu {
+    justify-content: center;
+   
+  }
+  .header_item_menu a{
+    margin-left: 40px;
+  }
 
 
-/* 기존 헤더 스타일  */
-/* #Header{
-  color: #fff;
-  border: 3px solid #d86b6b;
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;    position: relative;
-}  */
-/* 배경 이미지 */
-/* .header_container {
+  /* li 드롭다운 메뉴가 우측으로 펼쳐지도록 설정 */
+
+  .nav_item > li {
+    position: absolute;
+    top: 10%;
+    left: 100%;
+    transform: translateX(20%);
+    display: none;
+    z-index: 1003;
+    white-space: nowrap;
+  }
+
+  .nav_item li {
+    transition: opacity 0.3s ease-in-out;
+    display: none;
+    z-index: 10;
+    left: 100%;
+    color: #fff;
+    border-radius: 0.4;
+  }
+  .nav_item:hover li {
+    display: block;
+  }
   
-  position: relative; 
-  height: 100vh; 
-  width: 100%;
-   display: flex;
-  justify-content: space-between; 
-  overflow: hidden; 
-  color: #fff; 
-  z-index: 1; 
-  border: 5px solid #3b3ef0;
+  /* 드롭다운 메뉴 스타일 */
+  .nav_item li a {
+    padding: 0 5px; 
+    color: #999;
+    margin: 0;
+    transition: background-color 0.8s ease;
+  }
+  
+
+  /* 드롭다운 간격 조정 */
+.nav_item li:nth-child(2) {
+  top: 40px; 
+}
+.nav_item li:nth-child(3) {
+  top: 80px; 
+}
+.nav_item li:nth-child(4) {
+  top: 120px; 
+}
+.nav_item li:nth-child(5) {
+  top: 160px; 
 }
 
-.header_container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--background-image); 
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  opacity: 0.8; 
-  z-index: -1; 
 }
-
-
-
-.header_title{
-  position: relative;
-  margin: 20px 20px;
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 20px;
-  border: 1px solid #ae3bf0;
-}
- */
-
-
-/* 공통 스타일 */
-/* .header_menu_navbar {
-  display: flex;
-  gap: 20px;
-  position: relative;
-}
-
-.nav_item {
-  position: relative;
-  list-style: none;
-}
-.nav_item > li > span {
-  font-size: 15px;
-  cursor: pointer;
-  padding: 10px 15px;
-  border: 1px solid #53ff6a;
-  background-color: #333;
-  color: #fff;
-  display: block;
-}
-
-.nav_item .dropdown {
-  display: none; 
-  position: absolute;
-  top: 100%; 
-  left: 0;
-  background-color: #444;
-  border: 1px solid #7b7dff;
-  padding: 10px;
-  list-style: none;
-  z-index: 10;
-}
-
-.nav_item:hover .dropdown {
-  display: block; 
-
-
-}
-
-.nav_item .dropdown li {
-  padding: 5px 10px;
-  border-bottom: 1px solid #fff;
-
-}
-
-.nav_item .dropdown li:last-child {
-  border-bottom: none; 
-}
-
-.nav_item .dropdown li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.nav_item .dropdown li a:hover {
-  color: #4caf50;
-} */
