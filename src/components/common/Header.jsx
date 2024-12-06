@@ -70,7 +70,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="header_item_menu">
-        <Link to="/menu">Menu</Link>
+        <Link to="/menu"> :Menu</Link>
       </div>
     </div>
   );

@@ -35,12 +35,15 @@ export default function IntroSwiper() {
         <div className="hamburger-bar" onClick={() => navigateToSlide(3)}>
           <a href="#slide4"></a>
         </div>
+        <div className="hamburger-bar" onClick={() => navigateToSlide(4)}>
+          <a href="#slide5"></a>
+        </div>
       </div>
 
       {/* 고정되는 내용 */}
       <div id="fixed-elements"style={{ zIndex: 1100 }}>
         <div className="intro_hotel_logo logo2">
-          <Link to ="/main">SlrklhiHotel</Link>
+          <Link to ="/reservation">SlrklhiHotel</Link>
         </div>
         <div className="intro_menu_link link2">
           <a href="/menu">: Menu</a>
@@ -65,7 +68,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide1">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="../" type="video/mp4" />
+              <source src="/assets/videos/oceanload.mp4" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan">Welcome to Slrklhi Hotel</h1>
             <p className="intro_description">
@@ -78,7 +81,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide2">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="../assets/videos/city inside1.mp4" type="video/mp4" />
+              <source src="/assets/videos/city_inside1.mp4" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan2">Modern Comforts, Natural Escapes</h1>
             <p className="intro_description2">
@@ -91,7 +94,7 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide3">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="../assets/videos/city lettering view.mp4" type="video/mp4" />
+              <source src="/assets/videos/city_lettering_view.mp4" type="video/mp4" />
             </video>
             <p className="intro_description3">
               Discover the best of Slrklhi in a modern, stylish, and comfortable environment.
@@ -103,7 +106,19 @@ export default function IntroSwiper() {
         <SwiperSlide id="slide4">
           <div id="HomeIntro">
             <video autoPlay muted loop>
-              <source src="../assets/videos/city night2.mp4" type="video/mp4" />
+              <source src="/assets/videos/city_night2.mp4" type="video/mp4" />
+            </video>
+            <h1 className="intro_Slogan4">Urban Sophistication, Coastal Tranquility</h1>
+            <p className="intro_description4">
+              Discover the best of Slrklhi in a modern, stylish, and comfortable environment.
+            </p>
+          </div>
+        </SwiperSlide>
+        {/* 5_slide */}
+        <SwiperSlide id="slide4">
+          <div id="HomeIntro">
+            <video autoPlay muted loop>
+              <source src="/assets/videos/city_fly_view.mp4" type="video/mp4" />
             </video>
             <h1 className="intro_Slogan4">Urban Sophistication, Coastal Tranquility</h1>
             <p className="intro_description4">

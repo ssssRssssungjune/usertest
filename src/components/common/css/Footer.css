@@ -3,6 +3,7 @@
   width: 100%;
   position: fixed; 
   left: 0;
+  bottom: 0; 
   background-color: rgba(10, 10, 10, 0.5);
   z-index: 1000; 
 }
@@ -18,7 +19,7 @@
   color: #faf4f4;
   /* border: 1px solid #b10d0d; */
 }
-h1{
+h2{
   margin:0 30px;
   /* border: 1px solid #f55050; */
 }
@@ -86,4 +87,28 @@ span{
   text-align: center;
   border: 1px solid rgba(214,211,211,.5);
   margin-left: auto;
+}
+/* 반응형  */
+@media (max-width: 600px) {
+  h2 {
+    display: none;
+  }
+  .Footer_container {
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+    height: auto; /* 높이 자동 조정 */
+    padding: 20px;
+  }
+
+  .conection_foot {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .location_foot {
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+  }
 }

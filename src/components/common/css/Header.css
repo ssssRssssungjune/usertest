@@ -40,6 +40,7 @@
 .header_item_menu {
   width: 20%;
   height: 190px;
+  margin-top: 10px;
   display: flex;
   justify-content: flex-end;
 }
@@ -111,26 +112,59 @@
   color: #fff;
 }
 /* 반응형css */
-@media (max-width: 600px) {
+ @media (max-width: 600px) {
+
   #header {
-    flex-direction: column; 
-    height: auto; 
-    align-items: center;
-    /* border: 3px solid #51faa6; */
+    display: flex;
+    justify-content: space-between; 
+    height: 80px;
   }
   h1.header_title{
-    text-align: center; 
-    /* border: 1px solid #ccc; */
-    width: 200px;
-    height: 150px;
-    margin-top: 50px;
+    width: 250px;
+    padding: 0 15px;
+  }
+  .header_item_menu {
+  
+  width: 200px;
+  padding: 10px 0 0 ;
+  justify-content: center;
+  text-align: center;
+  height: 50px;
+}
+
+
+  /*#header {
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center ;   
+    height: auto; 
+    display: flex;
+    position: relative;
   }
 
-  .header_menu_navbar, 
+  h1.header_title{
+    width: 200px; 
+    height: 150px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    text-align: center ;
+    margin-top: 50px ; 
+  }
+  .header_title>h1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .header_title>h1:hover{
+    font-size: 30px;
+ 
+  } */
+
+  /* .header_menu_navbar, 
   .header_item_menu {
     width: 100%; 
     align-items: center;
-    transform: translateY(-10px); 
+    transform: translateY(-3px); 
     box-shadow: 0 36px 36px 0 rgba(90, 90, 90, 0.2);
     border-radius: 20px;
   }
@@ -142,17 +176,17 @@
   }
   .header_item_menu a{
     margin-left: 40px;
-  }
+  } */
 
   /* li 우측 드롭다운 설정 */
-  .nav_item {
-    position: relative; 
+   .nav_item {
+    display: none; 
   }
-  .nav_item li {
+  /*.nav_item li {
     position: absolute;  
     top: 5%;
     left: 100%;
-    transform: translateX(10%);
+    transform: translateX(5%);
     transition: opacity 0.3s ease-in-out;
     display: none;
     z-index: 100;
@@ -169,17 +203,16 @@
   }
   
   /* 드롭다운 메뉴 스타일 */
-  .nav_item li a {
+  /* .nav_item li a {
     color: #999;
     margin: 0;
     transition: background-color 0.3s ease;
     display: block; 
     width: 200px; 
-  }
-
+  } */
 
   /* 드롭다운 간격 조정 */
-.nav_item li:nth-child(2) {
+/* .nav_item li:nth-child(2) {
   top: 40px; 
 }
 .nav_item li:nth-child(3) {
@@ -190,6 +223,6 @@
 }
 .nav_item li:nth-child(5) {
   top: 160px; 
-}
+} */
 
 }

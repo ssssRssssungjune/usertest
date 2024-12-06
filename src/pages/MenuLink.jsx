@@ -3,6 +3,12 @@ import '../components/common/css/MenuLink.css';
 
 export default function MenuLink() {
   return (
+  <>
+    <div className="Menu_title"><Link to="/main" style={{ textDecoration: 'none', color: 'inherit' }}>
+      slrklhiHOTEL</Link>
+    
+   <span className="Menu_item_menu">
+   <Link to="/menu"> : Menu</Link></span></div>    
     <nav className="menu_container">
       <ul className="menu_list">
         <li><Link to="/about">About</Link></li>
@@ -12,5 +18,6 @@ export default function MenuLink() {
         <li><Link to="/community">Community</Link></li>
       </ul>
     </nav>
+  </>
   );
 }
