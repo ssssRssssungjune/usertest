@@ -1,9 +1,20 @@
-//24.11.25 지은 [완료] : RoomContent 테스트.
+import React from "react";
+import RoomType from "./RoomType";
+
+// RoomContent 컴포넌트
 export default function RoomContent() {
+  // roomTypeId가 1부터 5까지인 배열
+  const roomTypeIds = [1, 2, 3, 4, 5];
+
   return (
-    <div>
-      <h1>객실 페이지</h1>
-      <div>객실 소개 페이지가 하위 컴포넌트식으로 들어갈 예정</div>
+    <div className="room-content">
+      <h1>객실 정보</h1>
+      <div className="room-type-list">
+        {/* roomTypeIds 배열을 map을 사용하여 각 아이디에 대해 RoomTypeCard 컴포넌트를 렌더링 */}
+        {roomTypeIds.map((id) => (
+          <RoomType key={id} roomTypeId={id} />
+        ))}
+      </div>
     </div>
   );
 }
