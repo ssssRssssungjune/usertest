@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";  // Link 컴포넌트 추가
 import "../css/RoomType.css";
 
 const RoomType = ({ roomTypeId }) => {
@@ -36,7 +37,10 @@ const RoomType = ({ roomTypeId }) => {
         />
       </div>
       <div className="room-info">
-        <h3 className="room-name">{roomType.name}</h3>
+        <h3 className="room-name">
+          {/* Link 컴포넌트를 사용하여 상세 페이지로 이동 */}
+          <Link to={`/room/${roomType.name}`}>{roomType.name}</Link>
+        </h3>
         <p className="room-occupancy">
           최소 인원: {roomType.baseOccupancy}명 / 최대 인원: {roomType.maxOccupancy}명
         </p>
