@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위한 useNavigate 훅
 
 import '../../member/css/MemberLoginPage.css';
@@ -14,15 +14,36 @@ function MemberLoginPage() {
         setFormData({ ...formData, [name]: value });
     };
 
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUserInfo = async () => {
+            if (!user) { // 캐싱된 정보가 없을 때만 호출
+                const response = await fetch("http://localhost:8080/api/user/me", {
+                    method: "GET",
+                    credentials: "include",
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setUser(data);
+                }
+            }
+        };
+
+        fetchUserInfo();
+    }, [user]); // user가 null일 때만 호출
+
+
+
+
     // 로그인 버튼 클릭 시 실행되는 함수
     const handleLogin = async () => {
         try {
             // 백엔드 로그인 API 호출
             const response = await fetch('http://localhost:8080/api/users/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { "Content-Type": "application/json" },
+                credentials: "include", // 쿠키 포함
                 body: JSON.stringify(formData), // userId와 password를 전송
             });
 
