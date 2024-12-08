@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/PaymentContent.css";
 import { useEffect, useState } from "react";
+import { Button, Col, Form, Row, Stack, Table } from "react-bootstrap";
 
 
 export default function PaymentContent() {
@@ -85,11 +86,19 @@ return (
     <div id="container_payment" className="text-center">
       <div>
         <h3 className="title">예약 정보</h3>
-        <table border="1" style={{ width: '100%', borderCollapse: 'collapse' }}
-          className="table table-bordered"
-        >
-          <thead>
-            <tr className="table-dark">
+        <Form>
+          <Form.Group as={Row} className="mb-3 justify-content-center">
+            <Col sm="auto">
+              <Form.Control type="text" placeholder="text" />
+            </Col>
+            <Col sm="2">
+              <Button>조회</Button>
+            </Col>
+          </Form.Group>
+        </Form>
+        <Table responsive="sm" bordered>
+          <thead borderless>
+            <tr>
               <th>예약 아이디</th>
               <th>객실 타입</th>
               <th>체크인 날짜</th>
@@ -113,7 +122,7 @@ return (
               ))}
             </tr>
           </tbody>
-        </table>
+        </Table>
       </div>
       <div className="select-payments">
         <h3 className="title">결제방식 선택</h3>
@@ -128,7 +137,7 @@ return (
           <label className="form-check-label" htmlFor="payment_paypal">PayPal</label>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit" onClick={handleSubmit}>결제하기</button>
+      <Button variant="primary" type="submit" onClick={handleSubmit}>결제하기</Button>
     </div>
   </div>
   );
