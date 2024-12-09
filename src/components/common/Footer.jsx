@@ -6,7 +6,7 @@ export default function Footer() {
     <div id="Footer">
       <div className="Footer_container">
         <h1>
-          <Link to="/">slrklhiHOTEL</Link>
+          <Link to="/main">slrklhiHOTEL</Link>
         </h1>
         <ul className='conection_foot'>
           <h3>CONTACT US</h3>
@@ -24,11 +24,11 @@ export default function Footer() {
       <p className='horizon'></p>
       <div className='copyright_foot'>
         <span className='admin'>
-          <Link to ="/Admin">Admin</Link>
+          <Link to ="/admin">Admin</Link>
         </span>
         <span>shkkeiHotel</span>
         <div className='reservation_box'>
-          <Link to =" /Reservation">Reservation Now</Link>
+          <Link to =" /reservation/reservation-info">Reservation Now</Link>
         </div>
       </div>
     </div>
