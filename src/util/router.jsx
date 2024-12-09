@@ -12,14 +12,18 @@ import ReservationCheckOut from "../components/user/reservation/script/Resevatio
 import ReservationCalendar from "../components/user/reservation/script/ReservationCalendar";
 import ReservationForm from "../components/user/reservation/script/ReservationForm";
 import MenuLink from "../pages/MenuLink"; 
-import IntroSwiper from "../pages/IntroSwiper";
-
+// import IntroSwiper from "../pages/IntroSwiper";
+import IntroSwiperNew from "../pages/IntroSwiperNew";
 
 export const RouterInfo = [
   {
-    path: "/main",
-    element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+    path: "/mainNew",
+    element: <IntroSwiperNew />, // IntroSwiperNew  수정 메인 풀페이지
   },
+  // {
+  //   path: "/main",
+  //   element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+  // },
   {
     path: "/menu",
     element: <MenuLink />, // Header/Footer 없는 페이지
