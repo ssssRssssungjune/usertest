@@ -1,24 +1,24 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/PaymentContent.css";
 import { useEffect, useState } from "react";
-import { Button, Col, Form, Row, Stack, Table } from "react-bootstrap";
+import { Button, Col, Form, Row, Table } from "react-bootstrap";
 
 
 export default function PaymentContent() {
-// reservation data 저장
 const [reservationData, setReservationData] = useState(null);
+const [reservationId, setReservationId] = useState("");
+const [sendReservationId, setSendReservationId] = useState("1");
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+
 // 결제 방식 선택
 const [selectedPayment, setSelectedPayment] = useState(null);
-
-
 
 // 컴포넌트가 마운트될 때 API 호출
 useEffect(() => {
   const fetchReservationData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/payments/reservation-list'); // 실제 API URL로 변경
+      const response = await fetch(`http://localhost:8080/api/payments/reservationList/${sendReservationId}`); // 실제 API URL로 변경
       if (!response.ok) {
         throw new Error('Failed to fetch reservation data');
       }
@@ -32,17 +32,28 @@ useEffect(() => {
   };
 
   fetchReservationData();
-}, []);
+}, [sendReservationId]);
 
 // 로딩, 에러, 예약 데이터가 없을 때 처리
 if (loading) return <div>Loading...</div>;
 if (error) return <div>Error: {error}</div>;
 if (!reservationData) return <div>No reservation data available.</div>;
 
+// 임의로 reservationId 지정해주기
+const handleReservationIdChange  = (event) => {
+  setReservationId(event.target.value);
+}
+
+// 조회 버튼 클릭하면 현재 입력된 reservationId값 보내기.
+const handleReservationIdSend = () => {
+  setSendReservationId(reservationId)
+}
+
 // 결제 방식 선택
 const handlePaymentChange = (e) => {
   setSelectedPayment(e.target.id);
 };
+
 
 // 결제 버튼 클릭 시 실행되는 함수
 const handleSubmit = async () => {
@@ -51,12 +62,12 @@ const handleSubmit = async () => {
     return;
   }
 
-  const reservationId = reservationData.reservationId; // reservationId 가져오기
+  // const reservationId = reservationData.reservationId; // reservationId 가져오기
 
    // PayPal 결제 방식 선택 시
-   if (selectedPayment === 'payment_paypal' && reservationId) {
+   if (selectedPayment === 'payment_paypal' && sendReservationId) {
     try {
-      const response = await fetch(`http://localhost:8080/api/paypal/checkout/${reservationId}`, {
+      const response = await fetch(`http://localhost:8080/api/paypal/checkout/${sendReservationId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -87,17 +98,25 @@ return (
       <div>
         <h3 className="title">예약 정보</h3>
         <Form>
-          <Form.Group as={Row} className="mb-3 justify-content-center">
-            <Col sm="auto">
-              <Form.Control type="text" placeholder="text" />
-            </Col>
-            <Col sm="2">
-              <Button>조회</Button>
+          <Form.Group as={Row} className="mb-3 justify-content-center d-flex gap-2 ">
+            <Col sm="3" className="d-flex justify-content-center align-items-center">
+              <Form.Control 
+                type="text" 
+                value={reservationId}
+                placeholder="text" 
+                style={{marginRight:"10px"}}
+                onChange={handleReservationIdChange}
+              />
+              <Button 
+                size="auto"
+                style={{width:"100px"}}
+                onClick={handleReservationIdSend}
+              >조회</Button>
             </Col>
           </Form.Group>
         </Form>
         <Table responsive="sm" bordered>
-          <thead borderless>
+          <thead>
             <tr>
               <th>예약 아이디</th>
               <th>객실 타입</th>
@@ -114,7 +133,7 @@ return (
                 <td key={index} style={{ padding: '10px' }}>
                   {typeof value === 'string' && value.includes('T') ? (
                     // 날짜 형식일 경우, 'T'를 제거하고 보기 좋게 표시
-                    new Date(value).toLocaleDateString()
+                    new Date(value).toLocaleDateString('ko-KR').replace(/\.$/, '')
                   ) : (
                     value
                   )}
