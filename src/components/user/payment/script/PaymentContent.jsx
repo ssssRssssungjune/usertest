@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/PaymentContent.css";
 import { useEffect, useState } from "react";
-import { Button, Col, Form, Row, Table } from "react-bootstrap";
+import { Button, Col, Form, Modal, Row, Table } from "react-bootstrap";
+import PaymentChooseModal from "./PaymentChooseModal";
 
 
 export default function PaymentContent() {
@@ -10,6 +11,11 @@ const [reservationId, setReservationId] = useState("");
 const [sendReservationId, setSendReservationId] = useState("1");
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
+
+const [show, setShow] = useState(false);
+
+const handleClose = () => setShow(false);
+
 
 // 결제 방식 선택
 const [selectedPayment, setSelectedPayment] = useState(null);
@@ -51,18 +57,20 @@ const handleReservationIdSend = () => {
 
 // 결제 방식 선택
 const handlePaymentChange = (e) => {
-  setSelectedPayment(e.target.id);
+  if (e.target.checked) {
+    setSelectedPayment(e.target.id);
+  } else {
+    setSelectedPayment(null);
+  }
 };
-
 
 // 결제 버튼 클릭 시 실행되는 함수
 const handleSubmit = async () => {
   if (!selectedPayment) {
-    alert('결제방식을 선택해주세요');
+    setShow(true);
+    // alert('결제방식을 선택해주세요');
     return;
   }
-
-  // const reservationId = reservationData.reservationId; // reservationId 가져오기
 
    // PayPal 결제 방식 선택 시
    if (selectedPayment === 'payment_paypal' && sendReservationId) {
@@ -78,6 +86,8 @@ const handleSubmit = async () => {
 
       // 응답을 JSON 형식으로 파싱
       const responseText = await response.text();
+      console.log("responseText: ", responseText);
+      console.log("responseText222");
 
       // 'redirect:'로 시작하는지 확인하고 URL 추출
       if (responseText && responseText.startsWith('redirect:')) {
@@ -99,11 +109,11 @@ return (
         <h3 className="title">예약 정보</h3>
         <Form>
           <Form.Group as={Row} className="mb-3 justify-content-center d-flex gap-2 ">
-            <Col sm="3" className="d-flex justify-content-center align-items-center">
+            <Col sm="6" className="d-flex justify-content-center align-items-center">
               <Form.Control 
                 type="text" 
                 value={reservationId}
-                placeholder="text" 
+                placeholder="예약ID 입력(결제 테스트를 위한 용도)" 
                 style={{marginRight:"10px"}}
                 onChange={handleReservationIdChange}
               />
@@ -116,9 +126,9 @@ return (
           </Form.Group>
         </Form>
         <Table responsive="sm" bordered>
-          <thead>
+          <thead class="table-dark">
             <tr>
-              <th>예약 아이디</th>
+              <th>예약ID</th>
               <th>객실 타입</th>
               <th>체크인 날짜</th>
               <th>체크아웃 날짜</th>
@@ -133,7 +143,11 @@ return (
                 <td key={index} style={{ padding: '10px' }}>
                   {typeof value === 'string' && value.includes('T') ? (
                     // 날짜 형식일 경우, 'T'를 제거하고 보기 좋게 표시
-                    new Date(value).toLocaleDateString('ko-KR').replace(/\.$/, '')
+                    new Date(value).toLocaleDateString('ko-KR', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit'
+                    }).replace(/\.$/, '')
                   ) : (
                     value
                   )}
@@ -148,9 +162,10 @@ return (
         <div className="form-check">
           <input 
             className="form-check-input" 
-            type="radio" 
+            type="checkbox" 
             name="paypal" 
             id="payment_paypal"
+            autocomplete="off"
             onChange={handlePaymentChange}
           />
           <label className="form-check-label" htmlFor="payment_paypal">PayPal</label>
@@ -158,6 +173,8 @@ return (
       </div>
       <Button variant="primary" type="submit" onClick={handleSubmit}>결제하기</Button>
     </div>
+
+    <PaymentChooseModal show={show} handleClose={handleClose} />
   </div>
   );
 }
