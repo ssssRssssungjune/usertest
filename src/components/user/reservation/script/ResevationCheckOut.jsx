@@ -7,7 +7,7 @@ import ButtonEx from "../../../common/ButtonEx";
 function ReservationCheckOut(){
 
     // props
-    const {roomData} = useOutletContext();
+    const {roomTypeDataList} = useOutletContext();
 
     const [loadComplete,setLoadComplete] = useState(false);
     const nowDate = toDate(Date.now(), { timeZone: 'Asia/Seoul' });
@@ -31,16 +31,15 @@ function ReservationCheckOut(){
 
     useEffect(()=>{
         const fetchData = async () => {
-            const res = await customFetch("http://localhost:8080/api/reservation/test");
-
+            const res = await customFetch(`http://localhost:8080/api/reservation/summary/${selectedTimestamp}`);
+    
             if(res !== null){
                 setReservationSummary(res);
                 setLoadComplete(true);
             }
         };
-        setLoadComplete(false);
         fetchData();
-    },[]);
+    },[selectedYearAndMonth.month]);
 
     useEffect(()=>{
         const selectedDate = toDate(selectedTimestamp , {timeZone : 'Asia/Seoul'});
@@ -60,9 +59,15 @@ function ReservationCheckOut(){
         //     month : prevMonth.month-1 > 0 ? prevMonth.month-1 : 12
         // });
         const prevMonth = toDate(selectedTimestamp, { timeZone: 'Asia/Seoul' });
-
         const newDate = setMonth(prevMonth, prevMonth.getMonth() - 1);
-        setSelectedTimestamp(newDate);  // selectedTimestamp만 수정
+
+        if (newDate < setMonth(nowDate, nowDate.getMonth())) {
+            return; // 아무 동작도 하지 않음
+        }
+
+        setLoadComplete(false);
+
+        setSelectedTimestamp(newDate.getTime());  // selectedTimestamp만 수정
     }
 
     function onClickNextButtton(){
@@ -73,9 +78,15 @@ function ReservationCheckOut(){
         //     month : nextMonth.month+1 <= 12 ? nextMonth.month+1 : 1
         // });
         const nextMonth = toDate(selectedTimestamp, { timeZone: 'Asia/Seoul' });
-
         const newDate = setMonth(nextMonth, nextMonth.getMonth() + 1);
-        setSelectedTimestamp(newDate);  // selectedTimestamp만 수정
+
+        if (newDate > setMonth(nowDate, nowDate.getMonth() + 12)) {
+            return; // 아무 동작도 하지 않음
+        }
+
+        setLoadComplete(false);
+
+        setSelectedTimestamp(newDate.getTime());  // selectedTimestamp만 수정
     }
 
     return(
@@ -87,7 +98,7 @@ function ReservationCheckOut(){
             </div>
             {loadComplete && <Outlet 
                 context={{
-                    roomData: roomData,
+                    roomTypeDataList: roomTypeDataList,
                     reservationData: reservationSummary,
                     selectedYearAndMonth: selectedYearAndMonth,
                     selectedTimestamp: selectedTimestamp,

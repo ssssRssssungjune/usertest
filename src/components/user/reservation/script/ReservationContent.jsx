@@ -39,16 +39,16 @@ export default function ReservationContent() {
   },[])
 
   return (
-    <>
+    <div className="container text-bg-light p-5">
     {
       loadContentComplete && 
           <Outlet 
             context={{
-              roomData: roomData
+              roomTypeDataList: roomData
             }} 
           />
     }
-    </>
+    </div>
   );
 }
 

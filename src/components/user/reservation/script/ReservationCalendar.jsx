@@ -9,7 +9,7 @@ import CustomCalendar from './CustomCalendar';
 function ReservationCalendar()
 {
     const {
-            roomData, 
+            roomTypeDataList, 
             reservationData, 
             selectedYearAndMonth, 
             setSelectedTimestamp // function
@@ -25,9 +25,9 @@ function ReservationCalendar()
 
     function getRoomDataForDate(timestamp){
 
-        return roomData.map((room) => {
+        return roomTypeDataList.map((room) => {
             // 예약된 객실 수 계산
-            const reservation = reservationData.find(
+            const reservation = reservationData && reservationData.find(
                 (item) => item.roomTypeId === room.roomTypeId && isSameDay(parseISO(item.reservationDate), timestamp)
             );
     

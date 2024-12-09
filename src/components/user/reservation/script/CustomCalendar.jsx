@@ -21,6 +21,7 @@ function CustomCalendar({year, month, customContent, onCellClick}){
         );
     
         const nextBlankArrForCurrentMonth = Array.from(
+            // {length: 6-lastDayOfDate.getDay() === 0 ? 7 : 6-lastDayOfDate.getDay()},
             {length: 6-lastDayOfDate.getDay()},
             ()=> null
         );

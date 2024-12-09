@@ -51,7 +51,7 @@ const GuideText= [
 
 function ReservationGuide(){
 
-    const {roomData} = useOutletContext();
+    const {roomTypeDataList} = useOutletContext();
 
     return(
         <>
@@ -69,7 +69,7 @@ function ReservationGuide(){
                     </tr>
                     </thead>
                     <tbody>
-                        {roomData.map(
+                        {roomTypeDataList.map(
                             (item)=>(
                                 <tr>
                                     <td>{item.name}</td>

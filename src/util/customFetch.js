@@ -12,7 +12,7 @@ export async function customFetch(url,data = null,fetchType = REST.GET){
 
     const baseUrl = url;
     let fetchUrl = baseUrl;
-    if(fetchType == REST.GET && data != null){
+    if(fetchType === REST.GET && data != null){
         const parameter = setQueryString(data);
         fetchUrl += `?${parameter}`;
     }
@@ -21,10 +21,10 @@ export async function customFetch(url,data = null,fetchType = REST.GET){
         const response = await fetch(fetchUrl, {
             method: fetchType,         // HTTP 메서드 (기본값: GET)
             headers: {  // HTTP 헤더 설정
-                "Accept": "application/json", // JSON으로 요청 수락
-                "Content-Type": "application/json" // JSON 데이터 전송 시 필요
+                "Accept": "*/*", // JSON으로 요청 수락
+                "Content-Type": fetchType === REST.GET ? "application/x-www-form-urlencoded" : "application/json"  // GET은 urlencoded로 처리
             },
-            body: fetchType == REST.PUT || fetchType == REST.POST ? JSON.stringify(data) : null,              // 요청 본문 (POST, PUT 등에서 사용)
+            body: fetchType === REST.PUT || fetchType === REST.POST ? JSON.stringify(data) : null,              // 요청 본문 (POST, PUT 등에서 사용)
             
             /*
             mode: "cors",          // CORS 정책 설정
@@ -43,9 +43,21 @@ export async function customFetch(url,data = null,fetchType = REST.GET){
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const resData = await response.json(); // JSON 형태로 응답 파싱
-        console.log("데이터:", resData); // 파싱된 데이터 사용
-        return resData;
+        // 응답이 JSON 형식인지 텍스트 형식인지 확인
+        const contentType = response.headers.get("content-type");
+
+        if (contentType && contentType.includes("application/json")) {
+            const resData = await response.json(); // JSON 응답 처리
+            console.log("JSON 응답 데이터:", resData);
+            return resData;
+        } else if (contentType && contentType.includes("text")) {
+            const resData = await response.text(); // 텍스트 응답 처리
+            console.log("텍스트 응답 데이터:", resData);
+            return resData;
+        } else {
+            throw new Error("지원되지 않는 응답 형식입니다.");
+        }
+
     } catch (error) {
         console.error("에러 발생:", error); // 에러 처리
     }
