@@ -19,7 +19,7 @@ function MemberLoginPage() {
     useEffect(() => {
         const fetchUserInfo = async () => {
             if (!user) { // 캐싱된 정보가 없을 때만 호출
-                const response = await fetch("http://localhost:8080/api/user/me", {
+                const response = await fetch("http://localhost:8080/api/users/me", {
                     method: "GET",
                     credentials: "include",
                 });
@@ -115,7 +115,7 @@ function MemberLoginPage() {
                     {' '}
                     /{' '}
                     <button
-                        onClick={() => navigate('/register')}
+                        onClick={() => navigate('/users/register')}
                         className="btn-link"
                     >
                         회원가입

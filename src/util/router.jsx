@@ -50,7 +50,7 @@ export const RouterInfo = [
         element: <PaymentContent />,
       },
       {
-        path: "user",
+        path: "users",
         element: <MemberContent />, // MemberContent를 부모로 설정
         children: [
           {
