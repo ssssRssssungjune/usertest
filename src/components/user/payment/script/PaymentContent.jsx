@@ -24,7 +24,7 @@ const [selectedPayment, setSelectedPayment] = useState(null);
 useEffect(() => {
   const fetchReservationData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/payments/reservationList/${sendReservationId}`); // 실제 API URL로 변경
+      const response = await fetch(`http://localhost:8080/api/users/payments/reservationList/${sendReservationId}`); // 실제 API URL로 변경
       if (!response.ok) {
         throw new Error('Failed to fetch reservation data');
       }
@@ -75,7 +75,7 @@ const handleSubmit = async () => {
    // PayPal 결제 방식 선택 시
    if (selectedPayment === 'payment_paypal' && sendReservationId) {
     try {
-      const response = await fetch(`http://localhost:8080/api/paypal/checkout/${sendReservationId}`, {
+      const response = await fetch(`http://localhost:8080/api/users/paypal/checkout/${sendReservationId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
