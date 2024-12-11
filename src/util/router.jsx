@@ -8,6 +8,8 @@ import CommunityContent from "../components/user/community/script/CommunityConte
 import PaymentContent from "../components/user/payment/script/PaymentContent";
 import MemberContent from "../components/user/member/script/MemberContent";
 import AboutContent from "../components/user/about/script/AboutContent";
+import UsersNoticeList from "../components/user/community/script/UsersNoticeList";
+import UsersNoticeDetailPage from "../components/user/community/script/UsersNoticeDetailPage";
 
 export const RouterInfo = [
   {
@@ -37,6 +39,16 @@ export const RouterInfo = [
       {
         path: "community",
         element: <CommunityContent />,
+        children: [
+          {
+            path: "notice",
+            element: <UsersNoticeList />,
+          },
+          {
+            path: "notice/:noticeId",
+            element: <UsersNoticeDetailPage />
+          },
+        ]
       },
       {
         path: "payment",

@@ -1,1 +1,30 @@
 /* AboutContent.css */
+#usersCommunityContent {
+  max-width: 1200px;
+  min-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+#usersCommunityContent .table-height-fixed {
+  height: 420px;
+  margin-bottom: 20px;
+}
+#usersCommunityContent .contentTitle {
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+#usersCommunityContent .contentTable {
+  font-size: 14px;
+}
+#usersCommunityContent .modal-item-text {
+  margin-left: 6px;
+}
+#usersCommunityContent .table-cell {
+  white-space: nowrap;       /* 텍스트 줄 바꿈을 하지 않도록 설정 */
+  overflow: hidden;          /* 넘치는 텍스트는 숨김 처리 */
+  text-overflow: ellipsis;   /* 넘치는 텍스트는 '...'으로 표시 */
+}
+#usersCommunityContent .detailFormWrap {
+  padding: 20px;
+  border: 1px solid #ddd;
+}
