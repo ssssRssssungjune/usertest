@@ -22,13 +22,14 @@ export default function ReservationContent() {
         baseOccupancy : 0,
         maxOccupancy : 0,
         basePrice : 0,
-        roomCount : 0
+        roomCount : 0,
+        imagePath : ""
     },
   ]);
 
   useEffect(()=>{
     const fetchData = async () => {
-      const res = await customFetch("http://localhost:8080/api/admin/rooms/types/count");
+      const res = await customFetch("http://localhost:8080/api/users/rooms/types/count");
       if (res !== null){
         setRoomData(res);
         setLoadComplete(true);
