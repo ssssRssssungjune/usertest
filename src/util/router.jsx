@@ -13,7 +13,8 @@ import ReservationCalendar from "../components/user/reservation/script/Reservati
 import ReservationForm from "../components/user/reservation/script/ReservationForm";
 import MenuLink from "../pages/MenuLink"; 
 import IntroSwiper from "../pages/IntroSwiper";
-
+import UsersNoticeList from "../components/user/community/script/UsersNoticeList";
+import UsersNoticeDetailPage from "../components/user/community/script/UsersNoticeDetailPage";
 
 export const RouterInfo = [
   
@@ -78,6 +79,16 @@ export const RouterInfo = [
       {
         path: "community",
         element: <CommunityContent />,
+        children: [
+          {
+            path: "notice",
+            element: <UsersNoticeList />,
+          },
+          {
+            path: "notice/:noticeId",
+            element: <UsersNoticeDetailPage />
+          },
+        ]
       },
       {
         path: "payment",
