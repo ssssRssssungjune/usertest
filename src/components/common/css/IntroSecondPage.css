@@ -5,14 +5,14 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .inner_image_area {
   width: 70%; 
   height: 100vh;
   position: relative;
-  /* overflow: hidden; */
+  overflow:visible;
 }
 
 .inner_image_area img {
@@ -45,16 +45,15 @@
   margin-left:40px ;
   white-space: nowrap; 
   overflow: hidden; 
-  /* border: 1px solid #ccc; */
+  
 }
-
 .inner_info_area p {
   width: 190px;
   line-height: 22px;
   font-size: 0.9rem;
   margin-bottom: 30px;
   margin-left:40px ;
-  /* border:1px solid #9b7bf1; */
+  
 }
 
 .inner_info_area ul {
@@ -63,7 +62,7 @@
   margin: 0;
   margin-bottom: 30px;
   margin-left:40px ;
-  /* border:1px solid #ca4e4e; */
+  
 }
 
 .inner_info_area ul li {
@@ -73,7 +72,7 @@
 
 .learn_more_btn {
   margin-top: 80px;
-  margin-left:60px ;
+  margin-left:50px ;
   border-radius: 2%;
   background-color: rgba(255, 255, 255, 0.9);
   color: #000;
@@ -86,7 +85,8 @@
 }
 
 .learn_more_btn:hover {
-  background-color: #bceffa;
+  transition: transform 0.3s ease, font-size 0.3s ease;
+  background-color: rgb(186, 247, 255);
   color: #000;
 }
 
@@ -97,23 +97,22 @@
   --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.7);
 }
 .swiper {
-  /* position: relative !important;     */
   width: 100%;
   height: 100vh;
-  /* border:3px solid #4f2cec; */
 }
 
 
 /* 이너 페이지네이션 */
 div.inner_pagination {
+  height: 30px;
   position: absolute !important ;
   top: 13% !important; 
-  right: auto !important; /* 기존: 20% */
+  right: auto !important;
   left: 80% !important;  
   transform: translateX(30%) !important;
   display: flex;
   gap: 20px;
-  z-index: 150 ;
+  z-index: 150;
   /* border: 2px solid #f3f0f0; */
 }
 
@@ -123,7 +122,7 @@ div.inner_pagination {
 {
   content: "";
   position: absolute;
-  inset: -7px; 
+  inset: -9px; 
   border: 1.5px solid rgba(255, 255, 255, 0.9); 
   border-radius: 50%;
   pointer-events: none;

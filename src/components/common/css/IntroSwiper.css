@@ -1,5 +1,5 @@
 
-#fixed-elements {
+#fixed_elements {
   position: fixed;
   top: 10px;
   left: 20px;
@@ -55,7 +55,8 @@
   color: white;
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
-.hamburger-menu {
+/* 기본 햄버거 바 */
+.hamburger_menu {
   position: fixed;
   left: 10px;
   top: 50%;
@@ -64,7 +65,7 @@
   display: flex;
   flex-direction: column;
 }
-.hamburger-bar {
+.hamburger_bar {
   width: 80px;
   height: 2px;
   background-color: rgba(255, 255, 255, 0.6);
@@ -74,13 +75,19 @@
   border-radius: 4px;
   box-shadow: 0 36px 36px 0 rgba(179, 179, 179, 0.4);
 }
-.hamburger-bar:hover {
-  width: 150px;
+.hamburger_bar:hover {
+  width: 120px;
   background-color: #ffffff;
   transition: transform 0.8s ease, box-shadow 0.5s ease;
   border-radius: 4px;
 }
-
+.active_bar {
+  width: 120px;                /* 길게 확장된 상태 */
+  background-color: #ffffff;   /* 강조 색상 */
+  transition: all 0.8s ease-in-out; /* 부드러운 전환 */
+  border-radius: 4px;          /* 둥근 모서리 유지 */
+  box-shadow: 0 36px 36px 0 rgba(179, 179, 179, 0.4); /* 그림자 효과 유지 */
+}
 /* 슬라이드 동영상 요소 스타일링 */
 
 #HomeIntro {
@@ -127,8 +134,7 @@ video{
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* 슬라이드별 스타일링 */
-
+/* 첫 번째 슬라이드별 스타일링 */
 /* 1_slide */
 .intro_Slogan {
   top: 50%;
@@ -140,7 +146,7 @@ video{
   top: 54%;
 }
 
-/* 2_slide */
+/* 첫페이지 2_slide */
 .intro_Slogan2 {
   top: 20%;
   left: 30%;
@@ -155,7 +161,8 @@ video{
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* 3_slide */
+
+/*첫페이지 3_slide */
 .intro_description3 {
   width: 600px;
   top: 54%;
@@ -168,7 +175,7 @@ video{
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* 4_slide */
+/*첫페이지 4_slide,5_slide */
 .intro_Slogan4, 
 .intro_Slogan5 {
   width: 1920px;
@@ -186,30 +193,50 @@ video{
   color: rgba(255, 255, 255, 0.6);
 }
 
+
 /* NEw페이지 네이션 추가 */
 :root {
   --swiper-pagination-color: white !important ;
   --swiper-pagination-bullet-size: 12px;
   --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.5);
 }
+.swiper {
+  position: relative !important;  /* 부모 기준 고정 */
+  width: 100vw;
+  height: 100vh;
+}
 
-
-.swiper-pagination  {
+.first-swiper-pagination{
   width: 150px!important;
+  height: 30px!important;
   position: absolute !important;
   bottom: 20px !important;
   left:50%!important;
-  transform: translateX(-50%) !important;
+  transform: translate(-50%,-0%) !important;
   display: flex !important; 
   gap: 10px !important;
-  z-index: 5000;
+  z-index: 1000!important;
   overflow: visible !important;
   /* border: 1px solid #464444; */
 }
 
+.custom-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-/* 페이지네이션 기본 스타일 */
-.swiper-pagination-bullet {
+.custom-bullet.active {
+  background-color: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.swiper-pagination-bullet
+ {
   width: var(--swiper-pagination-bullet-size, 12px);
   height: var(--swiper-pagination-bullet-size, 12px);
   background: var(--swiper-pagination-bullet-inactive-color, rgba(255, 255, 255, 0.9));
@@ -220,7 +247,8 @@ video{
 
 /* 비활성 상태 호버 시 */
 .swiper-pagination-bullet:hover::after, 
-.swiper-pagination-bullet-active::after {
+.swiper-pagination-bullet-active::after
+{
   content: "";
   position: absolute;
   inset: -8px; 
@@ -232,9 +260,10 @@ video{
 }
 
 /* 활성 상태 기본 스타일 */
-.swiper-pagination-bullet-active {
-  width: 15px;
-  height: 15px;
+.swiper-pagination-bullet-active
+ {
+  width:15px;
+  height:15px;
   background: var(--swiper-pagination-color, white);
   transform: scale(0.9);
   border: 1.5px solid white;
@@ -243,8 +272,44 @@ video{
 }
 
 /* 활성 상태에서 추가 테두리 유지 */
-.swiper-pagination-bullet-active:hover::after {
+.swiper-pagination-bullet-active:hover::after
+ {
   border: 1px solid white;
   opacity: 1;
   transition: all 0.7s ease;
+}
+/* 3번째 이미지  */
+/* 키프레임 애니메이션  */
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px) scale(1.2); 
+    opacity: 0.8; 
+  }
+  50% {
+    opacity:1; 
+  }
+  100% {
+    transform: translateY(0) scale(1); 
+    opacity: 1; /* 완전히 표시 */
+  }
+}
+
+.bg_slide {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;  
+}
+
+
+.bg_slide.animate {
+  animation: slideIn 1.5s ease-in-out forwards;  /* 2초 동안 슬라이드 인 효과 */
+}
+/* 네번째,다섯번째 이미지 */
+.bg_slide4,.bg_slide5 {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }
