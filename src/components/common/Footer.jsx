@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <div id="Footer">
       <div className="Footer_container">
-        <h1>
+        <h2>
           <Link to="/main">slrklhiHOTEL</Link>
-        </h1>
+        </h2>
         <ul className='conection_foot'>
           <h3>CONTACT US</h3>
           <li>예약문의   1544-8082</li>
@@ -28,7 +28,7 @@ export default function Footer() {
         </span>
         <span>shkkeiHotel</span>
         <div className='reservation_box'>
-          <Link to =" /reservation/reservation-info">Reservation Now</Link>
+          <Link to =" /reservation/gudie">Reservation Now</Link>
         </div>
       </div>
     </div>

@@ -14,15 +14,18 @@ import ReservationForm from "../components/user/reservation/script/ReservationFo
 import MenuLink from "../pages/MenuLink"; 
 import IntroSwiper from "../pages/IntroSwiper";
 
+
 export const RouterInfo = [
-  {
+  
+   {
     path: "/main",
-    element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
-  },
+     element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+   },
   {
     path: "/menu",
     element: <MenuLink />, // Header/Footer 없는 페이지
   },
+
   {
     path: "/",
     element: <UserPage />, //  경로에서 UserPage를 기본으로 렌더링
