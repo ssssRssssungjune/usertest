@@ -38,9 +38,9 @@
   margin-bottom: 60px;
   /* padding: 0 50px; */
 }
-#usersCommunityContent .table-height-fixed {
+/* #usersCommunityContent .table-height-fixed {
   margin-bottom: 10px;
-}
+} */
 #usersCommunityContent .contentTable {
   font-size: 11px;
 }
@@ -52,6 +52,7 @@
   --bs-table-color: #ffffff;
   --bs-table-hover-color: #c0c0c0;
   border-color: #373737;
+  font-size: 11px;
 }
 #usersCommunityContent .pagination {
   font-size: 11px;
@@ -84,4 +85,13 @@
 }
 #usersCommunityContent span {
   margin: 0;
+}
+
+#usersCommunityContent .detail-page .btn {
+  font-size: 11px;
+  padding: 9px 15px;
+  --bs-btn-bg: rgba(0,0,0,0.5);
+  --bs-btn-border-color: #373737;
+  --bs-btn-hover-bg: rgba(0,0,0,0.5);
+  --bs-btn-hover-border-color: #ffffff;
 }

@@ -49,49 +49,49 @@ export default function UsersNoticeDetailPage() {
 
   return (
     <> 
-      <div style={{marginBottom:"100px"}}>
-        <h5 className="contentTitle">공지사항 상세</h5>
-        <Table bordered>
+      <div className="table-height-fixed detail-page">
+        <Table 
+          responsive="xl"
+          border={1}
+          className="table-group table-bordered"
+        >
           <tbody>
             <tr>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">게시판 ID</td>
-              <td colSpan={3}>{data.noticeId}</td>
+              <td style={{width:"100px"}} className="text-center table-cell">게시판 ID</td>
+              <td colSpan={3} className="text-start">{data.noticeId}</td>
             </tr>
             <tr>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">카테고리</td>
-              <td>{data.category}</td>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">조회수</td>
-              <td>{data.views}</td>
+              <td style={{width:"100px"}} className="text-center table-cell">카테고리</td>
+              <td className="text-start">{data.category}</td>
+              <td style={{width:"100px"}} className="text-center table-cell">조회수</td>
+              <td className="text-start">{data.views}</td>
             </tr>
             <tr>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">작성일</td>
-              <td>{formatDate(data.createdAt)}</td>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">수정일</td>
-              <td>{formatDate(data.updatedAt)}</td>
+              <td style={{width:"100px"}} className="text-center table-cell">작성일</td>
+              <td className="text-start">{formatDate(data.createdAt)}</td>
+              <td style={{width:"100px"}} className="text-center table-cell">수정일</td>
+              <td className="text-start">{formatDate(data.updatedAt)}</td>
             </tr>
             <tr>
-              <td style={{width:"100px"}} className="text-center bg-body-secondary">제목</td>
-              <td colSpan={3}>{data.title}</td>
+              <td style={{width:"100px"}} className="text-center">제목</td>
+              <td colSpan={3} className="text-start">{data.title}</td>
             </tr>
             <tr style={{height: "400px"}}>
-              <td style={{width: "100px"}} className="text-center bg-body-secondary">내용</td>
+              <td style={{width: "100px"}} className="text-center">내용</td>
               <td colSpan={3} style={{height: "400px"}}>
-                <div style={{maxHeight:"400px", overflowY:"auto"}}>
+                <div style={{maxHeight:"400px", overflowY:"auto"}} className="text-start">
                   {data.content}
                 </div>
               </td>
             </tr>
           </tbody>
         </Table>
-        <div style={{marginTop:"30px"}}>
-          <Button 
-            variant="primary" 
-            onClick={handleMoveBack}
-            className="position-relative top-0 start-50 translate-middle-x"
-          >
-              목록 이동
-          </Button>
-        </div>
+        <Button 
+          onClick={handleMoveBack}
+          className="position-relative"
+        >
+            목록 이동
+        </Button>
       </div>
     </>
   );
