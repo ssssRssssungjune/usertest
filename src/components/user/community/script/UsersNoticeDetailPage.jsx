@@ -76,10 +76,10 @@ export default function UsersNoticeDetailPage() {
               <td style={{width:"100px"}} className="text-center">제목</td>
               <td colSpan={3} className="text-start">{data.title}</td>
             </tr>
-            <tr style={{height: "400px"}}>
+            <tr style={{height: "280px"}}>
               <td style={{width: "100px"}} className="text-center">내용</td>
-              <td colSpan={3} style={{height: "400px"}}>
-                <div style={{maxHeight:"400px", overflowY:"auto"}} className="text-start">
+              <td colSpan={3} style={{height: "280px"}}>
+                <div style={{maxHeight:"280px", overflowY:"auto"}} className="text-start">
                   {data.content}
                 </div>
               </td>

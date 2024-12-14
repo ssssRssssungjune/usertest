@@ -17,10 +17,12 @@
   gap: 30px; /* 간격 추가 */ 
 }
 .Community_list li.Community_li{
+  height: 300px;
   color: rgba(255,255,255,0.6);
   font-size:50px;
   text-align: center;
-  transform: translateY(-150px)
+  /* transform: translateY(-150px); */
+  transform: translateY(-284px);
 }
 /* .Community_list p {
   width: 100%;
@@ -94,4 +96,6 @@
   --bs-btn-border-color: #373737;
   --bs-btn-hover-bg: rgba(0,0,0,0.5);
   --bs-btn-hover-border-color: #ffffff;
+  margin-top: -40px;
 }
+
