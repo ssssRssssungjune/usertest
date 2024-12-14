@@ -23,6 +23,7 @@ export default function UsersNoticeList() {
 
   return (
     <>
+      <h5 className="contentTitle">공지사항 목록</h5>
       <div className="contentTable">
         <UsersNoticeTable data={data} loading={loading} />
         <UsersBoardsPaginavigation

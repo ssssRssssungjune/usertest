@@ -15,7 +15,7 @@ export default function usePaginationFetch(urlTest) {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-        const response = await fetch(`${fetchUrl}`);
+        const response = await fetch(fetchUrl);
          if (!response.ok) {
            throw new Error("Network response was not ok");
          }
@@ -35,8 +35,10 @@ useEffect(() => {
   if (isFirstLoad.current) {
     fetchData();
     isFirstLoad.current = false;
+  } else { // 첫 로딩 이후, 페이지 변경 시 데이터 로드
+    fetchData();
   }
-}, [fetchData]);
+}, [fetchUrl, fetchData]);
 
 return { data, loading, error, totalPages, totalElements, page, setPage, size };
 }

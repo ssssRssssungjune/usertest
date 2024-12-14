@@ -14,28 +14,26 @@ export default function UsersBoardsPaginavigation({
   }
 
   return (
-    <div>
-      <Pagination className="justify-content-center">
-        {/* <Pagination.First /> */}
-        <Pagination.Prev
-          disabled={page === 1}
-          onClick={() => page > 1 && onPageChange(page - 1)}
-        />
-        {pageNumbers.map((number) => (
-          <Pagination.Item
-            key={number}
-            active={number === page} 
-            onClick={() => onPageChange(number)}
-          >
-            {number}
-          </Pagination.Item>
-        ))}
-        <Pagination.Next
-          disabled={page === totalElements}
-          onClick={() => page < totalPages && onPageChange(page + 1)}
-        />
-        {/* <Pagination.Last /> */}
-      </Pagination>
-    </div>
+    <Pagination className="justify-content-center">
+      {/* <Pagination.First /> */}
+      <Pagination.Prev
+        disabled={page === 1}
+        onClick={() => page > 1 && onPageChange(page - 1)}
+      />
+      {pageNumbers.map((number) => (
+        <Pagination.Item
+          key={number}
+          active={number === page} 
+          onClick={() => onPageChange(number)}
+        >
+          {number}
+        </Pagination.Item>
+      ))}
+      <Pagination.Next
+        disabled={page === totalElements}
+        onClick={() => page < totalPages && onPageChange(page + 1)}
+      />
+      {/* <Pagination.Last /> */}
+    </Pagination>
   );
 }
