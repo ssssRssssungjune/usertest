@@ -96,6 +96,9 @@
   --bs-btn-border-color: #373737;
   --bs-btn-hover-bg: rgba(0,0,0,0.5);
   --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgba(0,0,0,0.5);
+  --bs-btn-active-border-color: #ffffff;
   margin-top: -40px;
 }
 
