@@ -103,78 +103,86 @@ const handleSubmit = async () => {
 };
 
 return (
-  <div className="container">
-    <div id="container_payment" className="text-center">
-      <div>
-        <h3 className="title">예약 정보</h3>
-        <Form>
-          <Form.Group as={Row} className="mb-3 justify-content-center d-flex gap-2 ">
-            <Col sm="6" className="d-flex justify-content-center align-items-center">
-              <Form.Control 
-                type="text" 
-                value={reservationId}
-                placeholder="예약ID 입력(결제 테스트를 위한 용도)" 
-                style={{marginRight:"10px"}}
-                onChange={handleReservationIdChange}
-              />
-              <Button 
-                size="auto"
-                style={{width:"100px"}}
-                onClick={handleReservationIdSend}
-              >조회</Button>
-            </Col>
-          </Form.Group>
-        </Form>
-        <Table responsive="sm" bordered>
-          <thead class="table-dark">
-            <tr>
-              <th>예약ID</th>
-              <th>객실 타입</th>
-              <th>체크인 날짜</th>
-              <th>체크아웃 날짜</th>
-              <th>기본 인원</th>
-              <th>최대 인원</th>
-              <th>총 가격</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {Object.values(reservationData).map((value, index) => (
-                <td key={index} style={{ padding: '10px' }}>
-                  {typeof value === 'string' && value.includes('T') ? (
-                    // 날짜 형식일 경우, 'T'를 제거하고 보기 좋게 표시
-                    new Date(value).toLocaleDateString('ko-KR', {
-                      year: 'numeric',
-                      month: '2-digit',
-                      day: '2-digit'
-                    }).replace(/\.$/, '')
-                  ) : (
-                    value
-                  )}
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </Table>
-      </div>
-      <div className="select-payments">
-        <h3 className="title">결제방식 선택</h3>
-        <div className="form-check">
-          <input 
-            className="form-check-input" 
-            type="checkbox" 
-            name="paypal" 
-            id="payment_paypal"
-            autocomplete="off"
-            onChange={handlePaymentChange}
-          />
-          <label className="form-check-label" htmlFor="payment_paypal">PayPal</label>
-        </div>
-      </div>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>결제하기</Button>
-    </div>
+  <nav className="Payment_container">
+    <ul className='Payment_list'>
+      <li className="Payment_li">
+        <div>Payment</div>
+        <div id ="usersPaymentContent">
+            <div id="container_payment" className="text-center">
+              <div>
+                <h5 className="title">예약 정보</h5>
+                <Form>
+                  <Form.Group as={Row} className="mb-3 justify-content-center d-flex gap-2 ">
+                    <Col sm="4" className="d-flex justify-content-center align-items-center">
+                      <Form.Control 
+                        type="text" 
+                        value={reservationId}
+                        placeholder="예약ID 입력(결제 테스트를 위한 용도)" 
+                        style={{marginRight:"10px"}}
+                        onChange={handleReservationIdChange}
+                      />
+                      <Button 
+                        size="auto"
+                        style={{width:"80px"}}
+                        onClick={handleReservationIdSend}
+                      >조회</Button>
+                    </Col>
+                  </Form.Group>
+                </Form>
+                <Table responsive="sm" bordered>
+                  <thead>
+                    <tr>
+                      <th>예약ID</th>
+                      <th>객실 타입</th>
+                      <th>체크인 날짜</th>
+                      <th>체크아웃 날짜</th>
+                      <th>기본 인원</th>
+                      <th>최대 인원</th>
+                      <th>총 가격</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      {Object.values(reservationData).map((value, index) => (
+                        <td key={index} style={{ padding: '10px' }} >
+                          {typeof value === 'string' && value.includes('T') ? (
+                            // 날짜 형식일 경우, 'T'를 제거하고 보기 좋게 표시
+                            new Date(value).toLocaleDateString('ko-KR', {
+                              year: 'numeric',
+                              month: '2-digit',
+                              day: '2-digit'
+                            }).replace(/\.$/, '')
+                          ) : (
+                            value
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  </tbody>
+                </Table>
+              </div>
+              <div className="select-payments">
+                <h5 className="title">결제방식 선택</h5>
+                <div className="form-check">
+                  <input 
+                    className="form-check-input" 
+                    type="checkbox" 
+                    name="paypal" 
+                    id="payment_paypal"
+                    autocomplete="off"
+                    onChange={handlePaymentChange}
+                  />
+                  <label className="form-check-label" htmlFor="payment_paypal">PayPal</label>
+                </div>
+              </div>
+              <Button variant="primary" type="submit" onClick={handleSubmit}>결제하기</Button>
+            </div>
 
-    <PaymentChooseModal show={show} handleClose={handleClose} />
-  </div>
+            <PaymentChooseModal show={show} handleClose={handleClose} />
+        </div>
+      </li>
+    </ul>
+  </nav>
+  
   );
 }

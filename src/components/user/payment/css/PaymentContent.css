@@ -1,19 +1,101 @@
 /* ReservationContent.css */
+.Payment_container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%; 
+}
+.Payment_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  gap: 30px; /* 간격 추가 */ 
+}
+.Payment_list li.Payment_li{
+  height: 300px;
+  color: rgba(255,255,255,0.6);
+  font-size:50px;
+  text-align: center;
+  /* transform: translateY(-150px); */
+  transform: translateY(-284px);
+}
+/* .Payment_list p {
+  width: 100%;
+  font-size: 11px;
+  height: 500px;
+  padding: 15px;
+  line-height: 2;
+} */
+ #usersPaymentContent {
+  max-width: 1200px;
+  /* min-width: 1200px; */
+  min-width: 800px;
+  margin: 0 auto;
+  margin-top:15px;
+  margin-bottom: 60px;
+ }
 #container_payment {
   width: 100%;
   padding: 50px 20px;
-  margin: 50px 0;
-  border: 1px solid red;
+  /* margin: 50px 0; */
+  /* border: 1px solid red; */
   box-sizing: border-box;
   overflow: hidden;
 }
 #container_payment .title {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 #container_payment .select-payments {
   margin-top: 80px;
 }
+
+#container_payment .table {
+  font-size: 11px;
+  --bs-table-bg: rgba(0,0,0,0.5);
+  --bs-table-color: #ffffff;
+  --bs-table-border-color: #373737;
+}
+
+#container_payment .form-control {
+  background-color: rgba(37, 37, 37, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-size: 11px;
+}
+#container_payment .form-control::placeholder {
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
+}
 #container_payment .form-check {
-  display: inline-block;
-  margin-bottom: 20px;
+  display: flex;
+  height: 20px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+#container_payment .form-check-input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+}
+#container_payment .form-check-label {
+  font-size: 14px;
+  margin-top: 11px;
+  margin-left: 6px;
+}
+#container_payment .btn {
+  font-size: 11px;
+  padding: 9px 15px;
+  --bs-btn-bg: rgba(0,0,0,0.5);
+  --bs-btn-border-color: #373737;
+  --bs-btn-hover-bg: rgba(0,0,0,0.5);
+  --bs-btn-hover-border-color: #ffffff;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgba(0,0,0,0.5);
+  --bs-btn-active-border-color: #ffffff;
 }
