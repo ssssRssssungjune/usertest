@@ -4,6 +4,7 @@
 .room-title h1 {
     width: 200px;
     height: 50px;
+    color: white;
     margin: auto;
     padding: 10px;
 }
@@ -11,6 +12,7 @@
 .room-description h2{
     font-weight: lighter;
     width: 300px;
+    color: white;
     padding-top: 30px;
     margin: auto;
 }
@@ -28,7 +30,7 @@
     height: auto;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #444;
+    color: white;
     font-weight: bold;
 }
 
@@ -37,7 +39,7 @@
     grid-template-columns: repeat(2, 1fr); /* 두 줄 배치 */
     gap: 15px; /* 항목 간격 */
     font-size: 1.1rem;
-    color: #555;
+    color: white;
 }
 
 .room-summary-grid div {
@@ -52,7 +54,7 @@
     margin-right: 20px;
     padding: 0px 10px;
     font-weight: bold;
-    color: #333;
+    color: rgb(27, 27, 27);
     background-color: rgb(235, 232, 212);
 
 }
@@ -70,7 +72,7 @@
     height: auto;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #444;
+    color: white;
     font-weight: bold;
 }
 
@@ -99,7 +101,7 @@
     height: auto;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #444;
+    color: white;
     font-weight: bold;
 }
 
@@ -107,7 +109,7 @@
     height: 15px;
     padding: 15px;
     font-weight: bold;
-    color: #333;
+    color: white;
     border: 1px solid rgb(223, 221, 202);
 }
 
@@ -124,7 +126,7 @@
     height: auto;
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #444;
+    color:white;
     font-weight: bold;
 }
 
@@ -154,10 +156,13 @@
     height: auto;
     font-size: 1.6rem;
     margin-bottom: 20px;
-    color: #444;
+    color: rgb(37, 37, 37);
     font-weight: bold;
 }
 
+.teleNumber{
+    color: black;
+}
 
 .room-total{
     margin-bottom: 70px;

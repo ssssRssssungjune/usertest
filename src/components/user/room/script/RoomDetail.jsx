@@ -96,8 +96,8 @@ const RoomDetail = () => {
       <div className="room-telecom">
         <h2>객실예약문의</h2>
         <div className="room-summary-grid">
-        <div><strong>TEL</strong> +82-2-759-7311~5</div>
-          <div><strong>FAX</strong> +82-2-773-4910</div>
+        <div><strong>TEL</strong> <p className="teleNumber">+82-2-759-7311~5</p></div>
+          <div><strong>FAX</strong> <p className="teleNumber">+82-2-773-4910</p></div>
           
         </div>
       </div>
