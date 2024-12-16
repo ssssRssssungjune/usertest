@@ -1,9 +1,12 @@
 // 24.11.12 성준[약관 동의 페이지] : 각 약관 동의를 개별적으로 처리하고, 모든 약관 동의 여부에 따라 '다음' 버튼 활성화
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위한 useNavigate 훅 추가
 import ButtonEx from '../../../common/ButtonEx';
 import '../css/MemberTermsPage.css';
 
 function MemberTermsPage() {
+    const navigate = useNavigate(); // 페이지 이동 함수 선언
+
     // 24.11.12 성준[상태 관리] : 각 약관 동의 상태를 저장하는 state
     const [terms, setTerms] = useState({
         all: false,        // 모든 약관 동의
@@ -37,10 +40,20 @@ function MemberTermsPage() {
     // 24.11.12 성준[검증] : 모든 필수 약관 동의 여부 확인
     const isAllChecked = terms.service && terms.privacy;
 
+    // 약관 동의 후 페이지 이동
+    const handleNext = () => {
+        if (isAllChecked) {
+            alert("약관 동의가 완료되었습니다.");
+            navigate("/users/register"); // 페이지 이동
+        } else {
+            alert("필수 약관에 모두 동의해야 다음 단계로 진행할 수 있습니다.");
+        }
+    };
+
     return (
         <div className="terms_page">
             <h2>약관동의</h2>
-            <p>롯데호텔 회원 약관에 동의하셔야 회원가입을 진행할 수 있습니다.</p>
+            <p> 회원 약관에 동의하셔야 회원가입을 진행할 수 있습니다.</p>
 
             <div className="terms_checkbox">
                 <label>
@@ -92,7 +105,7 @@ function MemberTermsPage() {
 
             <ButtonEx
                 id="terms_agree_button"
-                action={() => alert("약관 동의가 완료되었습니다.")}
+                action={handleNext} // 필수 약관 확인 후 이동
                 disabled={!isAllChecked} // 필수 약관에 모두 동의해야 버튼 활성화
             >
                 다음
