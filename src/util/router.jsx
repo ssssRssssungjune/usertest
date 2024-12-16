@@ -1,4 +1,4 @@
-import { createBrowserRouter ,Navigate} from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import UserPage from "../pages/UserPage";
 import RoomContent from "../components/user/room/script/RoomContent";
 import SpecialContent from "../components/user/special/script/SpecialContent";
