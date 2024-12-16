@@ -1,14 +1,17 @@
+/* 회원가입 페이지 스타일 */
 .register-form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.11);
 
-    border-radius: 5px;
-
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.11);
+    color: #f0f0f0;
 }
 
-h2 {
+.register-form h2 {
     text-align: center;
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
@@ -21,70 +24,32 @@ h2 {
 .form-group label {
     flex: 0 0 120px;
     font-weight: bold;
+    text-align: left;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
-.form-group input[type="date"],
-.form-group input[type="tel"],
+.form-group input,
 .form-group select {
     flex: 1;
-
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     box-sizing: border-box;
-
-}
-
-.form-group button {
-    flex: 0 0 80px;
-    padding: 10px;
-    margin-left: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.form-group input[type="password"]:not(:last-child) {
-
-    margin-right: 10px;
-}
-
-.form-group input[type="tel"]{
-
-    width: 100%;
-    margin-left: px;
-}
-
-
-
-#contactNumber {
-    background-color: #ffffff;
-
 }
 
 button#registerSubmit {
-    width: 150px;
-    text-align: center;
+    width: 100%;
     padding: 12px;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
     background-color: #ffc06d;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    transition: background-color 0.3s ease;
 }
 
 button#registerSubmit:hover {
-    background-color: #ffaf41;
-}  
+    background-color: #ffb347;
+}
