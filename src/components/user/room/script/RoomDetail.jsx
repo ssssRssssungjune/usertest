@@ -77,7 +77,6 @@ const RoomDetail = () => {
           ))}
         </div>
       </div>
-
       <div className="room-extra">
         <h2>추가정보</h2>
         <div className="room-summary-grid">
