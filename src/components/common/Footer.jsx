@@ -24,11 +24,15 @@ export default function Footer() {
       <p className='horizon'></p>
       <div className='copyright_foot'>
         <span className='admin'>
-          <Link to ="/admin">Admin</Link>
+          <Link to="/admin">Admin</Link>
+
+        </span>
+        <span className='login'>
+          <Link to="/users/login">Login</Link>
         </span>
         <span>shkkeiHotel</span>
         <div className='reservation_box'>
-          <Link to =" /reservation/gudie">Reservation Now</Link>
+          <Link to=" /reservation/gudie">Reservation Now</Link>
         </div>
       </div>
     </div>
