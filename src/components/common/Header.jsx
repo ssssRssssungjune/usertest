@@ -1,5 +1,4 @@
 import './css/Header.css';
-// import backgroundImage from '../../assets/images/headerBackground.jpg';
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 
@@ -40,10 +39,10 @@ const Header = () => {
         <ul className="nav_item">
           Reservation
           <li className="dropdown">
-            <Link to="/reservation/reservation-info">Reservation Info</Link>
+            <Link to="/reservation/guide">Reservation Info</Link>
           </li>
           <li className="dropdown">
-            <Link to="/reservation/real-time-reservation">Real-Time Reservation</Link>
+            <Link to="/reservation/check_out">Real-Time Reservation</Link>
           </li>
         </ul>
 
@@ -71,7 +70,7 @@ const Header = () => {
         </ul>
       </div>
       <div className="header_item_menu">
-        <Link to="/menu">Menu</Link>
+        <Link to="/menu"> :Menu</Link>
       </div>
     </div>
   );

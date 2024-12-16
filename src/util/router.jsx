@@ -13,16 +13,20 @@ import ReservationCalendar from "../components/user/reservation/script/Reservati
 import ReservationForm from "../components/user/reservation/script/ReservationForm";
 import MenuLink from "../pages/MenuLink"; 
 import IntroSwiper from "../pages/IntroSwiper";
+import UsersNoticeList from "../components/user/community/script/UsersNoticeList";
+import UsersNoticeDetailPage from "../components/user/community/script/UsersNoticeDetailPage";
 
 export const RouterInfo = [
-  {
+  
+   {
     path: "/main",
-    element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
-  },
+     element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+   },
   {
     path: "/menu",
     element: <MenuLink />, // Header/Footer 없는 페이지
   },
+
   {
     path: "/",
     element: <UserPage />, //  경로에서 UserPage를 기본으로 렌더링
@@ -75,6 +79,16 @@ export const RouterInfo = [
       {
         path: "community",
         element: <CommunityContent />,
+        children: [
+          {
+            path: "notice",
+            element: <UsersNoticeList />,
+          },
+          {
+            path: "notice/:noticeId",
+            element: <UsersNoticeDetailPage />
+          },
+        ]
       },
       {
         path: "payment",
