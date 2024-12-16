@@ -54,7 +54,7 @@ const RoomDetail = () => {
       </div>
 
       <div className="room-special">
-        <h2>추가정보</h2>
+        <h2>특별서비스</h2>
         <div className="room-summary-grid">
           <ul>
             <li><p>서울 도심의 환상적인 전망을 감상</p></li>
