@@ -1,0 +1,129 @@
+/* 전체 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* RoomContent 영역 */
+.room-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.room-content h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #474747;
+}
+
+/* 객실 리스트 */
+.room-type-list {
+    display: flex;
+    flex-wrap: wrap; /* 자동 줄바꿈 */
+    gap: 20px; /* 카드 간 간격 */
+    justify-content: space-between; /* 가로 정렬 */
+}
+
+/* 객실 카드 */
+.room-type-card {
+    width: calc(50% - 20px); /* 카드의 너비: 50% - 간격 */
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* 내부 콘텐츠 넘침 방지 */
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.room-type-card:hover {
+    transform: translateY(-5px); /* 마우스 호버 시 위로 이동 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
+}
+
+
+/* 이미지 컨테이너 */
+.room-image-container {
+    width: 100%;
+    height: 300px; /* 이미지 높이 고정 */
+    overflow: hidden;
+    position: relative;
+}
+
+.room-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 비율에 맞게 채워짐 */
+    transition: transform 0.3s ease;
+}
+
+.room-type-card:hover .room-image {
+    transform: scale(1.05); /* 호버 시 확대 효과 */
+}
+
+/* 객실 정보 */
+.room-info {
+    padding: 15px 20px;
+    text-align: left;
+    border-top: 1px solid #ececec; /* 구분선 */
+}
+
+.room-name {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #565656;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(223, 221, 202);
+   
+}
+
+.room-name a {
+    display: block;
+    width: 130px;
+    margin: auto;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #484848;
+    transition: color 0.3s ease;
+
+}
+
+.room-name a > p{
+    display: block;
+    width: 130px;
+    margin: auto;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #484848;
+    transition: color 0.3s ease;
+
+}
+
+.room-name a:hover {
+    color: #000000; /* 링크 호버 시 색상 */
+}
+
+/* 디테일 텍스트 */
+.room-occupancy {
+    width: 200px;
+    font-size: 1rem;
+    color: #4f5555;
+    margin: auto;
+    padding: 10px 0;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .room-type-card {
+        width: 100%; /* 작은 화면에서는 한 줄에 한 개 */
+    }
+}

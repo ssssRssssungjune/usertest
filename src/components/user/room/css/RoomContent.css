@@ -7,5 +7,27 @@ background-color: #fff2a9dc;
 border: 2px solid rgb(0, 0, 0); 
 
 }
+
+.room-header{margin: auto;}
+
+.room-header p{
+    width: 1200px;
+    margin: auto;
+    font-size: small;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.room-header h1{
+ margin-bottom: 5px;
+ border-bottom: 1px solid rgb(223, 221, 202);
+ font-weight:lighter;
+ padding: 10px;
+}
+
+.room-type-list{
+    border-top: 1px solid rgb(223, 221, 202);
+    padding-top: 50px;
+}
 /* ReservationContent.css */
 
