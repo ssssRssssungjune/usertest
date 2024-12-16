@@ -1,6 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter ,Navigate} from "react-router-dom";
 import UserPage from "../pages/UserPage";
-import FullScreenPage from "../pages/FullScreenPage";
 import RoomContent from "../components/user/room/script/RoomContent";
 import SpecialContent from "../components/user/special/script/SpecialContent";
 import ReservationContent from "../components/user/reservation/script/ReservationContent";
@@ -8,6 +7,14 @@ import CommunityContent from "../components/user/community/script/CommunityConte
 import PaymentContent from "../components/user/payment/script/PaymentContent";
 import MemberContent from "../components/user/member/script/MemberContent";
 import AboutContent from "../components/user/about/script/AboutContent";
+import ReservationGuide from "../components/user/reservation/script/ReservationGuide";
+import ReservationCheckOut from "../components/user/reservation/script/ResevationCheckOut";
+import ReservationCalendar from "../components/user/reservation/script/ReservationCalendar";
+import ReservationForm from "../components/user/reservation/script/ReservationForm";
+import MenuLink from "../pages/MenuLink"; 
+import IntroSwiper from "../pages/IntroSwiper";
+import UsersNoticeList from "../components/user/community/script/UsersNoticeList";
+import UsersNoticeDetailPage from "../components/user/community/script/UsersNoticeDetailPage";
 
 // 사용자 관련 페이지 컴포넌트 추가 import
 import MemberTermsPage from "../components/user/member/script/MemberTermsPage";
@@ -17,14 +24,21 @@ import MemberSignUp from "../components/user/member/script/MemberSignUp";
 import MemberSignUpComplete from "../components/user/member/script/MemberSignUpComplete";
 
 export const RouterInfo = [
+  
+   {
+    path: "/main",
+     element: <IntroSwiper />, // IntroSwiper 메인 풀페이지
+   },
+  {
+    path: "/menu",
+    element: <MenuLink />, // Header/Footer 없는 페이지
+  },
+
   {
     path: "/",
-    element: <UserPage />, // UserPage가 기본 페이지로 설정됨
+    element: <UserPage />, //  경로에서 UserPage를 기본으로 렌더링
     children: [
-      {
-        index: true, // / 경로로 접속했을 때 FullScreenPage가 표시됨
-        element: <FullScreenPage />,
-      },
+     
       {
         path: "about",
         element: <AboutContent />,
@@ -40,10 +54,48 @@ export const RouterInfo = [
       {
         path: "reservation",
         element: <ReservationContent />,
+        children: [
+          {
+            path: "",
+            element: <Navigate to="guide" />
+          },
+          {
+            path: "guide",
+            element: <ReservationGuide/>
+          },
+          {
+            path: "check_out",
+            element: <ReservationCheckOut/>,
+            children: [
+              {
+                path: "",
+                element: <Navigate to="calendar" />
+              },
+              {
+                path: "calendar",
+                element: <ReservationCalendar/>
+              },
+              {
+                path: "form",
+                element: <ReservationForm/>
+              }
+            ]
+          }
+        ]
       },
       {
         path: "community",
         element: <CommunityContent />,
+        children: [
+          {
+            path: "notice",
+            element: <UsersNoticeList />,
+          },
+          {
+            path: "notice/:noticeId",
+            element: <UsersNoticeDetailPage />
+          },
+        ]
       },
       {
         path: "payment",

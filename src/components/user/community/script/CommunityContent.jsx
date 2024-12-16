@@ -1,9 +1,20 @@
-//24.11.25 지은 [완료] : CommunityContent 테스트.
+import { Outlet } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/CommunityContent.css";
+import { Link } from "react-router-dom";
+
+//24.11.25 지은 : CommunityContent 작업.
 export default function CommunityContent() {
   return (
-    <div>
-      <h1>게시판 페이지</h1>
-      <div>공지사항 페이지가 하위 컴포넌트식으로 들어갈 예정.</div>
-    </div>
+    <nav className="Community_container">
+      <ul className='Community_list'>
+        <li className="Community_li">
+          <Link to ="/community/notice">Notice</Link>
+          <div id ="usersCommunityContent">
+            <Outlet />
+          </div>
+        </li>
+      </ul>
+    </nav>
   );
 }

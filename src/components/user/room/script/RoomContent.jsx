@@ -1,9 +1,27 @@
+import { Link } from "react-router-dom";
+
 //24.11.25 지은 [완료] : RoomContent 테스트.
 export default function RoomContent() {
   return (
-    <div>
-      <h1>객실 페이지</h1>
-      <div>객실 소개 페이지가 하위 컴포넌트식으로 들어갈 예정</div>
-    </div>
+    <nav className="RoomView_container">
+      <h2>RoomView</h2>
+      <ul className='RoomViewt_list'>
+        <li>
+          <Link to ="/room/standard">스탠다드</Link>
+        </li>
+        <li>
+          <Link to ="/room/deluxe">디럭스</Link>
+        </li>
+        <li>
+          <Link to ="/room/suite">스위트</Link>
+        </li>
+        <li>
+          <Link to ="/room/family">패밀리</Link>
+        </li>
+        <li>
+          <Link to ="/room/presidential">프레지덴셜</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
