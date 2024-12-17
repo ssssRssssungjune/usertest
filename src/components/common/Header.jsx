@@ -1,9 +1,18 @@
 import './css/Header.css';
 import React from 'react';
-import { Link } from 'react-router-dom'; 
-
+import { Link, useNavigate } from 'react-router-dom'; 
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    document.body.style.transition = 'opacity 0.5s ease-in-out';
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+      navigate('/main');
+      document.body.style.opacity = '1';
+    }, 500);
+  };
   return (
     <div id="header">
       <h1 className="header_title"><Link to="/main" style={{ textDecoration: 'none', color: 'inherit' }}>

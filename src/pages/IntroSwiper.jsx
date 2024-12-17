@@ -16,7 +16,8 @@ import IntroSecondPage  from './IntroSecondPage';
 //24.11.25 지은 [수정완료] : 풀스크린 페이지, Header 컴포넌트 삭제 후 정상작동 테스트 완료.
 
 function IntroSwiper() {
-  const mainSwiperRef = useRef(null);
+  const mainSwiperRef = useRef(null);//메인 swiper 참조
+  const horizontalSwiperRef = useRef(null); //호리즌 swiper참조 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animateSlide, setAnimateSlide] = useState(false);
  
@@ -68,6 +69,17 @@ const navigateToSlide = (index) => {
     mainSwiperRef.current.slideTo(index);
   }
 };
+const navigateToNextSlide = () => {
+  if (horizontalSwiperRef.current) {
+    const nextIndex = horizontalSwiperRef.current.activeIndex + 1;
+    if (nextIndex < firstSlidesData.length) {
+      horizontalSwiperRef.current.slideTo(nextIndex);
+    }else {
+      horizontalSwiperRef.current.slideTo(0); // 마지막 슬라이드에서 처음으로 이동
+    }
+  }
+};
+
 return (
   <div style={{ height: "100vh", width: "100%" }}>
     {/* 고정 콘텐츠 */}
@@ -115,7 +127,7 @@ return (
     mainSwiperRef.current = swiper;
     swiper.on("slideChange", () => {
       const currentIndex = swiper.activeIndex;
-      setActiveIndex(currentIndex); // 현재 인덱스 추적
+       setActiveIndex(currentIndex); // 현재 인덱스 추적
       setAnimateSlide(currentIndex === 2); // 세 번째 슬라이드 애니메이션 트리거
     });
   }}
@@ -135,6 +147,7 @@ return (
             type: "bullets",
           }}
           modules={[Navigation, Pagination, Mousewheel]}
+          onSwiper={(swiper) => (horizontalSwiperRef.current = swiper)} // 호리즌 Swiper 참조 저장
           style={{ height: "100vh", width: "100%" }}
                  >
           <div class="first-swiper-pagination "></div>
@@ -153,6 +166,7 @@ return (
               </div>
             </SwiperSlide>
           ))}
+               <div className="arrow-right" onClick={navigateToNextSlide}></div>
         </Swiper>
       </SwiperSlide>
       
