@@ -20,19 +20,19 @@ const Header = () => {
         <ul className="nav_item">
           Roomview
           <li className="dropdown">
-            <Link to="/room/standard">Standard</Link>
+            <Link to="/room/스탠다드">Standard</Link>
           </li>
           <li className="dropdown">
-            <Link to="/room/deluxe">Deluxe</Link>
+            <Link to="/room/디럭스">Deluxe</Link>
           </li>
           <li className="dropdown">
-            <Link to="/room/suite">Suite</Link>
+            <Link to="/room/스위트">Suite</Link>
           </li>
           <li className="dropdown">
-            <Link to="/room/family">Family</Link>
+            <Link to="/room/패밀리">Family</Link>
           </li>
           <li className="dropdown">
-            <Link to="/room/presidential">Presidential</Link>
+            <Link to="/room/프레지덴셜">Presidential</Link>
           </li>
         </ul>
 

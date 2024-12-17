@@ -1,6 +1,9 @@
+
 import { createBrowserRouter, Navigate } from "react-router-dom";
+
 import UserPage from "../pages/UserPage";
 import RoomContent from "../components/user/room/script/RoomContent";
+import RoomDetail from "../components/user/room/script/RoomDetail";  // RoomDetail 컴포넌트 import
 import SpecialContent from "../components/user/special/script/SpecialContent";
 import ReservationContent from "../components/user/reservation/script/ReservationContent";
 import CommunityContent from "../components/user/community/script/CommunityContent";
@@ -39,6 +42,10 @@ export const RouterInfo = [
       {
         path: "room",
         element: <RoomContent />,
+      },
+      {
+        path: "room/:roomTypeName",  // 상세 페이지 경로
+        element: <RoomDetail />,  // RoomDetail 컴포넌트 추가
       },
       {
         path: "special",
