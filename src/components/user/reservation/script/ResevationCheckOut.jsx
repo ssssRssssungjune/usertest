@@ -31,7 +31,7 @@ function ReservationCheckOut(){
 
     useEffect(()=>{
         const fetchData = async () => {
-            const res = await customFetch(`http://localhost:8080/api/reservation/summary/${selectedTimestamp}`);
+            const res = await customFetch(`http://localhost:8080/api/users/reservation/summary/${selectedTimestamp}`);
     
             if(res !== null){
                 setReservationSummary(res);
