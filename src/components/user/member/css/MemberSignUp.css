@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    margin-bottom: 240px; /* 24.12.17 지은 : 임시로 추가*/
 }
 
 .signup-page h1 {

@@ -7,6 +7,7 @@
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.11);
     color: #f0f0f0;
+    margin-bottom: 240px; /* 24.12.17 지은 : 임시로 추가*/
 }
 
 .register-form h2 {
