@@ -43,7 +43,7 @@ function CustomCalendar({year, month, customContent, onCellClick}){
             {/*onClick={(timestamp)=>onClickSelectDay(timestamp)}*/}
             {getTimestampArrForCalendar(year,month)
                 .map((timestamp,index)=>(
-                    <div className="col bg-primary-subtle border border-secondary" key={index}>
+                    <div className="col border border-secondary" key={index}>
                         {timestamp ? (<>
                                 {bTest ?  (<>
                                     <p>{toDate(timestamp, { timeZone: 'Asia/Seoul' }).getDay()}</p>
