@@ -1,5 +1,6 @@
 .room-total{
     background-color: rgba(255, 255, 255, 0.11); /* 검은색 배경, 50% 투명 */;
+    margin-bottom: 210px;
 }
 
 .room-title {
@@ -173,11 +174,9 @@
     color: black;
 }
 
-.room-total{
-    margin-bottom: 70px;
-}
+
 .reservation{
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -190,11 +189,11 @@
 .reservation div{
     margin: 15px 20px;
     font-size: 1.6rem;
-    position: fixed;
+    position:absolute;
 }
 
 .reserve-button {
-    position: fixed;
+    position: absolute;
     bottom: 5px;
     right: 0%; 
     transform: translateX(-50%); /* 정확히 가운데 위치하도록 */
