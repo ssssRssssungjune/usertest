@@ -8,7 +8,7 @@ function MemberLoginPage() {
     const [errorMessage, setErrorMessage] = useState(''); // 오류 메시지
 
     const navigate = useNavigate();
-    const { fetchUserInfo } = useUserInfo();// 사용자 정보
+    const { fetchUserInfo } = useUserInfo(); // 사용자 정보
 
     // 입력값 변경 처리
     const handleChange = (e) => {
@@ -16,10 +16,9 @@ function MemberLoginPage() {
         setFormData({ ...formData, [name]: value });
     };
 
-
-
     // 로그인 버튼 클릭 시 실행
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault(); // 폼 기본 동작 방지
         try {
             const response = await fetch('http://localhost:8080/api/users/login', {
                 method: 'POST',
@@ -29,9 +28,8 @@ function MemberLoginPage() {
             });
 
             if (response.ok) {
-                alert('로그인 성공!');
                 await fetchUserInfo(); // 로그인 후 사용자 정보 불러오기
-                navigate('/'); // 홈으로 이동
+                window.location.href = "/";
             } else {
                 const errorText = await response.text();
                 setErrorMessage(errorText);
@@ -54,7 +52,8 @@ function MemberLoginPage() {
 
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
-            <div className="login-form">
+            {/* 폼 태그로 감싸기 */}
+            <form onSubmit={handleLogin} className="login-form">
                 <input
                     type="text"
                     name="userId"
@@ -71,12 +70,12 @@ function MemberLoginPage() {
                 />
                 <button
                     id="login-button"
-                    onClick={handleLogin}
+                    type="submit" // 버튼 타입을 submit으로 설정
                     className="custom-login-button"
                 >
                     로그인
                 </button>
-            </div>
+            </form>
 
             <div className="login-options">
                 <p>
@@ -87,8 +86,6 @@ function MemberLoginPage() {
                     <button onClick={() => navigate('/users/terms')} className="btn-link">회원가입</button>
                 </p>
             </div>
-
-
         </div>
     );
 }
