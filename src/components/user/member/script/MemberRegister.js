@@ -69,13 +69,16 @@ const MemberRegister = () => {
                     name: formData.name,
                     phone: formData.phone,
                 }),
+                credentials: 'include',
             });
 
             if (!response.ok) {
                 throw new Error('회원가입에 실패했습니다.');
             }
 
-            const result = await response.json();
+            // const result = await response.json();
+            const result = await response.text();  // 24.12.17 지은 : 임시로 추가
+            console.log(result);
             setSuccessMessage(result.message);
             setErrorMessage('');
             setFormData({
@@ -86,7 +89,9 @@ const MemberRegister = () => {
                 name: '',
                 phone: '',
             });
-            navigate(`${result.redirectUrl}?userId=${result.userId}`);
+            // navigate(`${result.redirectUrl}?userId=${result.userId}`);
+            alert(result); // 24.12.17 지은 : 임시로 추가
+            navigate('/users/login');  // 24.12.17 지은 : 임시로 추가
         } catch (error) {
             setErrorMessage(error.message);
         }
