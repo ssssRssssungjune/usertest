@@ -133,7 +133,7 @@
   height: 50px;
 }
 
-
+ }
   /*#header {
     flex-direction: column; 
     justify-content: center;
@@ -179,10 +179,10 @@
     margin-left: 40px;
   } */
 
-  /* li 우측 드롭다운 설정 
-   .nav_item {
+  /* li 우측 드롭다운 설정 */
+   /* .nav_item {
     display: none; 
-  }
+  } */
   /*.nav_item li {
     position: absolute;  
     top: 5%;

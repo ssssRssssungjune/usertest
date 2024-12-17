@@ -25,8 +25,8 @@ function IntroSwiper() {
     {
       id: "slide1",
       video: "/assets/videos/oceanload.mp4",
-      slogan: "Welcome to Slrklhi Hotel",
-      description: "Discover the best of Slrklhi in a modern, stylish, and comfortable environment.",
+      slogan: "Welcome to Starella Hotel",
+      description: "Discover the best of Starella in a modern, stylish, and comfortable environment.",
       sloganClass: "intro_Slogan",
       descriptionClass: "intro_description",
     },
@@ -34,7 +34,7 @@ function IntroSwiper() {
       id: "slide2",
       video: "/assets/videos/city_inside1.mp4",
       slogan: "Modern Comforts, Natural Escapes",
-      description: "Discover the best of Slrklhi in a modern, stylish, and comfortable environment.",
+      description: "Discover the best of Starella in a modern, stylish, and comfortable environment.",
       sloganClass: "intro_Slogan2",
       descriptionClass: "intro_description2",
     },
@@ -42,7 +42,7 @@ function IntroSwiper() {
       id: "slide3",
       video: "/assets/videos/city_lettering_view.mp4",
       slogan: "",
-      description: "Discover the best of Slrklhi in a modern, stylish, and comfortable environment.",
+      description: "Discover the best of Starella in a modern, stylish, and comfortable environment.",
       sloganClass: "",
       descriptionClass: "intro_description3",
     },
@@ -50,7 +50,7 @@ function IntroSwiper() {
       id: "slide4",
       video: "/assets/videos/city_night2.mp4",
       slogan: "Urban Sophistication, Coastal Tranquility",
-      description: "Discover the best of Slrklhi in a modern, stylish, and comfortable environment.",
+      description: "Discover the best of Starella in a modern, stylish, and comfortable environment.",
       sloganClass: "intro_Slogan4",
       descriptionClass: "intro_description4",
     },
@@ -58,7 +58,7 @@ function IntroSwiper() {
       id: "slide5",
       video: "/assets/videos/city_fly_view.mp4",
       slogan: "Urban Sophistication, Coastal Tranquility",
-      description: "Discover the best of Slrklhi in a modern, stylish, and comfortable environment.",
+      description: "Discover the best of Starella in a modern, stylish, and comfortable environment.",
       sloganClass: "intro_Slogan5",
       descriptionClass: "intro_description5",
     },
@@ -73,7 +73,7 @@ return (
     {/* 고정 콘텐츠 */}
     <div id="fixed_elements" style={{ zIndex: 1100 }}>
       <div className="intro_hotel_logo logo2">
-        <Link to="/reservation">SlrklhiHotel</Link>
+        <Link to="/reservation">StarellaHotel</Link>
       </div>
       <div className="intro_menu_link link2">
         <Link to="/menu">: Menu</Link>

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div id="header">
       <h1 className="header_title"><Link to="/main" style={{ textDecoration: 'none', color: 'inherit' }}>
-      slrklhiHOTEL</Link></h1>
+      StarellaHotel</Link></h1>
       <div className="header_menu_navbar">
 
         <ul className="nav_item">
