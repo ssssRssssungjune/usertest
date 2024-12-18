@@ -5,7 +5,7 @@ export default function MenuLink() {
   return (
   <>
     <div className="Menu_title"><Link to="/mainNew" style={{ textDecoration: 'none', color: 'inherit' }}>
-      slrklhiHOTEL</Link>
+    StarellaHOTEL</Link>
     
    <span className="Menu_item_menu">
    <Link to="/menu"> : Menu</Link></span></div>    

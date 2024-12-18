@@ -6,7 +6,7 @@ export default function Footer() {
     <div id="Footer">
       <div className="Footer_container">
         <h2>
-          <Link to="/main">slrklhiHOTEL</Link>
+          <Link to="/main">StarellaHotel</Link>
         </h2>
         <ul className='conection_foot'>
           <h3>CONTACT US</h3>
@@ -26,7 +26,7 @@ export default function Footer() {
         <span className='admin'>
           <Link to ="/admin">Admin</Link>
         </span>
-        <span>shkkeiHotel</span>
+        <span>StarellaHotel</span>
         <div className='reservation_box'>
           <Link to =" /reservation/gudie">Reservation Now</Link>
         </div>

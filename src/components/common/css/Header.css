@@ -70,12 +70,13 @@
   padding: 10px;
   z-index: 1003;
   left: 50%;
-}
+  /* border: 1px solid #ccc;*/
+} 
 
 .nav_item > li {
   position: absolute;
   top: 12%;
-  left: 50%;
+  left: 70%;
   transform: translateX(-50%);
   display: none;
   z-index: 1003;
@@ -132,7 +133,7 @@
   height: 50px;
 }
 
-
+ }
   /*#header {
     flex-direction: column; 
     justify-content: center;
@@ -179,9 +180,9 @@
   } */
 
   /* li 우측 드롭다운 설정 */
-   .nav_item {
+   /* .nav_item {
     display: none; 
-  }
+  } */
   /*.nav_item li {
     position: absolute;  
     top: 5%;
@@ -225,4 +226,3 @@
   top: 160px; 
 } */
 
-}
