@@ -1,6 +1,7 @@
 import { Outlet , useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { customFetch } from "../../../../util/customFetch";
+import '../css/ReservationContent.css';
 //24.11.25 지은 [완료] : ReservationContent 테스트.
 export default function ReservationContent() {
   const [loadContentComplete,setLoadComplete] = useState(false);
@@ -40,15 +41,17 @@ export default function ReservationContent() {
   },[])
 
   return (
-    <div className="container text-bg-light p-5">
-    {
-      loadContentComplete && 
-          <Outlet 
-            context={{
-              roomTypeDataList: roomData
-            }} 
-          />
-    }
+    <div id="rservationContent">
+      <div className="container p-5 text-light">
+      {
+        loadContentComplete && 
+            <Outlet 
+              context={{
+                roomTypeDataList: roomData
+              }} 
+            />
+      }
+      </div>
     </div>
   );
 }

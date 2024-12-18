@@ -1,3 +1,75 @@
+/* CSS 스타일 수정 및 추가 */
+/* 메인 페이지 화살표 버티컬 */
+.single-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid black;
+}
+
+.single-arrow:active .circle {
+  transform: rotate(360deg);
+}
+
+/* 첫페이지 슬라이더 화살표 호리즌  */
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid black;
+}
+
+.single-arrow:active .circle {
+  transform: rotate(360deg);
+}
+
+.arrow-right {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border: solid white;
+  border-radius: 3px  3px;
+  border-width: 0 6px 6px 0;
+  display: inline-block;
+  padding: 10px;
+  transform: translateY(-50%) rotate(-45deg);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.arrow-right:hover {
+  opacity: 0.8;
+  transform: translateY(-50%) rotate(-45deg) scale(1.2);
+  transition: all 0.3s ease;
+}
 
 #fixed_elements {
   position: fixed;
