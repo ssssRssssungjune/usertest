@@ -1,24 +1,35 @@
 /* Footer style*/
 #Footer {
   width: 100%;
-  position: fixed; 
+  position: fixed;
   left: 0;
-  bottom: 0; 
+  bottom: 0;
   background-color: rgba(10, 10, 10, 0.5);
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 .Footer_container {
   width: 100%;
   height: 150px;
-  max-width: none; 
+  max-width: none;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
   color: #faf4f4;
   /* border: 1px solid #b10d0d; */
 }
+
+/*//////////////////임시추가 로그아웃버튼색변경*/
+.logout-button {
+  color: white;
+}
+.logout-button:hover {
+  color: #888888;
+}
+/*///////////////////////////////*/
+
+
 h2{
   margin:0 30px;
   /* border: 1px solid #f55050; */
@@ -55,9 +66,9 @@ h2{
 }
 .horizon{
   width: 100%;
-  height: 1px; 
+  height: 1px;
   border-bottom: 1px solid #fff;
-  
+
 }
 .copyright_foot{
   color: #f9f7f7;

@@ -10,13 +10,36 @@ export default function Footer() {
     try {
       const response = await fetch("http://localhost:8080/api/users/info", {
         method: "GET",
-        credentials: "include", // JWT 쿠키 자동 전송
+        credentials: "include", // JWT 쿠키 전송
       });
       if (response.ok) {
         const data = await response.json();
-        setUserInfo(data); // 사용자 정보 상태 저장
+        setUserInfo(data); // 상태 업데이트
+        return data; // 사용자 정보 반환
       } else {
         console.error("사용자 정보를 가져오지 못했습니다.");
+        return null;
+      }
+    } catch (error) {
+      console.error("오류 발생:", error);
+      return null;
+    }
+  };
+
+  // 로그아웃 처리
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/api/users/logout", {
+        method: "GET",
+        credentials: "include", // 쿠키 자동 전송
+      });
+
+      if (response.ok) {
+        setUserInfo(null); // 상태 초기화
+        // alert("로그아웃되었습니다.");
+        window.location.href = "/"; // 홈으로 리다이렉트
+      } else {
+        console.error("로그아웃 실패");
       }
     } catch (error) {
       console.error("오류 발생:", error);
@@ -34,33 +57,44 @@ export default function Footer() {
           <h2>
             <Link to="/main">slrklhiHOTEL</Link>
           </h2>
-          <ul className='conection_foot'>
+          <ul className="conection_foot">
             <h3>CONTACT US</h3>
-            <li>예약문의   1544-8082</li>
-            <li>입금계좌  국민 004- 21-0848-651</li>
-            <li>카톡문의  @HJ Hotel </li>
+            <li>예약문의 1544-8082</li>
+            <li>입금계좌 국민 004- 21-0848-651</li>
+            <li>카톡문의 @HJ Hotel </li>
           </ul>
-          <ul className='location_foot'>
-            <p>서울특별시 성동구 성수 1가 2동 현대아티첼리 1007호 </p>
-            <p>사업자 번호 : 130-29-4839 | 등록 2001년  통신판매 업종 신고 : 제 2030-서울성수 -9228호  상호 :shkkei 대표 : 김유화 </p>
-            <p>고객센터 : 1544-0834 팩스 ; 0505-200-0606 이메일 : shkkei@howep.co.kr</p>
+          <ul className="location_foot">
+            <p>서울특별시 성동구 성수 1가 2동 현대아티첼리 1007호</p>
+            <p>
+              사업자 번호 : 130-29-4839 | 등록 2001년 통신판매 업종 신고 : 제
+              2030-서울성수 -9228호 상호 :shkkei 대표 : 김유화
+            </p>
+            <p>
+              고객센터 : 1544-0834 팩스 ; 0505-200-0606 이메일 :
+              shkkei@howep.co.kr
+            </p>
             <p>@shkkei hotel- sample page </p>
           </ul>
         </div>
-        <p className='horizon'></p>
-        <div className='copyright_foot'>
-        <span className='admin'>
+        <p className="horizon"></p>
+        <div className="copyright_foot">
+        <span className="admin">
           <Link to="/admin">Admin</Link>
         </span>
-          <span className='login'>
+          <span className="login">
           {userInfo ? (
-              <span>{userInfo.name}님 환영합니다</span> // 사용자 정보 있을 때
+              <>
+                <span>{userInfo.name}님 환영합니다</span> {/* 사용자 이름 표시 */}
+                <button onClick={handleLogout} className="logout-button">
+                  로그아웃
+                </button>
+              </>
           ) : (
               <Link to="/users/login">Login</Link> // 로그인 버튼 표시
           )}
         </span>
           <span>shkkeiHotel</span>
-          <div className='reservation_box'>
+          <div className="reservation_box">
             <Link to="/reservation/guide">Reservation Now</Link>
           </div>
         </div>
