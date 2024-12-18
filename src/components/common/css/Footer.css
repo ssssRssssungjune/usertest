@@ -20,16 +20,14 @@
   /* border: 1px solid #b10d0d; */
 }
 
+/*//////////////////임시추가 로그아웃버튼색변경*/
 .logout-button {
-
   color: white;
-
 }
-
 .logout-button:hover {
   color: #888888;
 }
-
+/*///////////////////////////////*/
 
 
 h2{
