@@ -56,7 +56,7 @@ function ReservationGuide(){
     return(
         <>
             <div className="container border p-3 m-3">
-                <Table bordered>
+                <Table id="guideTable" bordered>
                     <thead>
                     <tr>
                         <th rowSpan="2">객실명</th>
