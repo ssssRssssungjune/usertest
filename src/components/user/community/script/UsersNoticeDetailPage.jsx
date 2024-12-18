@@ -13,7 +13,13 @@ export default function UsersNoticeDetailPage() {
   
   const fetchNotice = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/notices/${noticeId}`);
+      const response = await fetch(`http://localhost:8080/api/users/notices/${noticeId}`, {
+        method: 'GET',
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        credentials: 'include',
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

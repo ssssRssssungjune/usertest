@@ -15,7 +15,13 @@ export default function usePaginationFetch(urlTest) {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch(fetchUrl, {
+          method: 'GET',
+          headers: {
+            "Content-Type" : "application/json",
+          },
+          credentials: 'include',
+        });
          if (!response.ok) {
            throw new Error("Network response was not ok");
          }

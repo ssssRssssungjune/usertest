@@ -19,6 +19,13 @@ import IntroSwiper from "../pages/IntroSwiper";
 import UsersNoticeList from "../components/user/community/script/UsersNoticeList";
 import UsersNoticeDetailPage from "../components/user/community/script/UsersNoticeDetailPage";
 
+// 사용자 관련 페이지 컴포넌트 추가 import
+import MemberTermsPage from "../components/user/member/script/MemberTermsPage";
+import MemberRegister from "../components/user/member/script/MemberRegister";
+import MemberLoginPage from "../components/user/member/script/MemberLoginPage";
+import MemberSignUp from "../components/user/member/script/MemberSignUp";
+import MemberSignUpComplete from "../components/user/member/script/MemberSignUpComplete";
+
 export const RouterInfo = [
   
    {
@@ -102,12 +109,35 @@ export const RouterInfo = [
         element: <PaymentContent />,
       },
       {
-        path: "user",
-        element: <MemberContent />,
+        path: "users",
+        element: <MemberContent />, // MemberContent를 부모로 설정
+        children: [
+          {
+            path: "terms", // /users/terms
+            element: <MemberTermsPage />,
+          },
+          {
+            path: "register", // /users/register
+            element: <MemberRegister />,
+          },
+          {
+            path: "login", // /users/login
+            element: <MemberLoginPage />,
+          },
+          {
+            path: "signup", // /users/signup
+            element: <MemberSignUp />,
+          },
+          {
+            path: "signupcom", // /users/signupcom
+            element: <MemberSignUpComplete />,
+          },
+        ],
       },
     ],
   },
 ];
+
 // createBrowserRouter로 RouterObject 생성
 const RouterObject = createBrowserRouter(RouterInfo);
 

@@ -10,7 +10,13 @@ const RoomDetail = () => {
   useEffect(() => {
     const fetchRoomDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/rooms/detail/${roomTypeName}`);
+        const response = await fetch(`http://localhost:8080/api/users/rooms/detail/${roomTypeName}`, {
+          method: 'GET',
+          headers: {
+            "Content-Type" : "application/json",
+          },
+          credentials: 'include',
+        });
         const data = await response.json();
 
         const groupedData = data.reduce((acc, item) => {
