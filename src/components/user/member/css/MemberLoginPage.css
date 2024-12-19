@@ -6,16 +6,29 @@
     justify-content: center; /* 중앙 정렬 (수직) */
     align-items: center; /* 중앙 정렬 (수평) */
     background-color: rgba(255, 255, 255, 0.11);
-
     color: rgba(255, 255, 255, 0.82);
     background-size: cover; /* 화면에 꽉 차게 배경 이미지 적용 */
     background-position: center;
     background-repeat: no-repeat;
     position: relative; /* 배경 이미지의 부모 요소 */
-
     margin-bottom: 240px; /* 24.12.17 지은 : 임시로 추가*/
+    margin-top: 200px;/* 24.12.19 유화 추가: 상단 띄우기*/
+    /* border: 3px solid #7afabe; */
 }
 
+/* 상단 로그인  */
+.login-page h1 {/* 24.12.19 유화 추가: 위치 위로 이동 */
+    position: relative;
+    top: -20px;
+    font-size: 40px;
+    /* border: 3px solid rgb(175, 250, 175); */
+}
+
+.login-page p {/* 24.12.19 유화 추가: 크기 간격 조정  */
+    font-size: 13px !important;
+    margin: 2px 0;
+    
+}
 /* 로그인 박스 스타일 */
 .login-container {
     width: 400px; /* 로그인 창의 너비 */
@@ -25,7 +38,7 @@
     color: #fff; /* 텍스트 색상 */
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
+    
 }
 
 /* 제목 스타일 */
@@ -71,7 +84,8 @@
     border: none;
     cursor: pointer;
     font-size: 12px;
-    margin: 5px;
+    margin: 15px;
+    /* border: 1px solid #ccc; */
 }
 
 .login-options .btn-link:hover {
@@ -82,4 +96,15 @@
 .error-message {
     color: red;
     margin-bottom: 10px;
+}
+
+/* 반응형css */
+/* 12.19 유화 추가  */
+@media (max-width: 600px) {
+    .login-page {
+        margin-top: 120px;  
+    }
+    .login-page h1 {
+        font-size: 30px;
+    }
 }
