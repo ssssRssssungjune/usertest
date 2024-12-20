@@ -1,4 +1,9 @@
 /* AboutContent.css */
+
+.RoomView_Top{
+    padding-top: 160px;
+}
+
 .room_container{
 margin: 0 auto;
 width: 1200px;

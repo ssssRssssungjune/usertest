@@ -43,7 +43,8 @@ const RoomDetail = () => {
     return <div className="loading">로딩 중...</div>;
   }
 
-  return (<div className="room-total">
+  return (<div className="Room-Top">
+  <div className="room-total">
     <div className="room-detail">
       <div className="room-title"><h1>{roomDetail.roomTypeName}</h1></div>
       <div className="room-info">
@@ -114,7 +115,7 @@ const RoomDetail = () => {
 
     </div>
   </div>
-
+  </div>
   );
 };
 

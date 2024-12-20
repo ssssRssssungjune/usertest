@@ -28,6 +28,7 @@ export default function RoomContent() {
   }, []);
 
   return (
+    <div className="RoomView_Top">
     <nav className="RoomView_container">
       <h2>RoomView</h2>
       <div className="room-content">
@@ -45,6 +46,7 @@ export default function RoomContent() {
     </div>
      
     </nav>
+    </div>
 
   );
 }

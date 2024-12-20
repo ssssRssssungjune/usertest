@@ -1,3 +1,9 @@
+
+.Room-Top{
+    padding-top: 200px;
+    margin: 0 200px;
+}
+
 .room-total{
     background-color: rgba(255, 255, 255, 0.11); /* 검은색 배경, 50% 투명 */;
     margin-bottom: 210px;
