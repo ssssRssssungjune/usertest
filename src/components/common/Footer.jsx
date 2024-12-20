@@ -55,7 +55,7 @@ export default function Footer() {
       <div id="Footer">
         <div className="Footer_container">
           <h2>
-            <Link to="/main">slrklhiHOTEL</Link>
+            <Link to="/main">StarellaHotel</Link>
           </h2>
           <ul className="conection_foot">
             <h3>CONTACT US</h3>
@@ -64,16 +64,17 @@ export default function Footer() {
             <li>카톡문의 @HJ Hotel </li>
           </ul>
           <ul className="location_foot">
-            <p>서울특별시 성동구 성수 1가 2동 현대아티첼리 1007호</p>
+            <h4>GROUP INFORMAYION</h4>
+            <p>서울특별시 성동구 성수 1가 2동 현대아티첼리 포레스트리버 1007호</p>
             <p>
               사업자 번호 : 130-29-4839 | 등록 2001년 통신판매 업종 신고 : 제
-              2030-서울성수 -9228호 상호 :shkkei 대표 : 김유화
+              2030-서울성수 -9228호 상호 : StarellaHotel 대표 :StarGroup
             </p>
             <p>
               고객센터 : 1544-0834 팩스 ; 0505-200-0606 이메일 :
-              shkkei@howep.co.kr
+              StarellaHotel@howep.co.kr
             </p>
-            <p>@shkkei hotel- sample page </p>
+            <p>@StarellaHotel - sample page </p>
           </ul>
         </div>
         <p className="horizon"></p>
@@ -93,7 +94,7 @@ export default function Footer() {
               <Link to="/users/login">Login</Link> // 로그인 버튼 표시
           )}
         </span>
-          <span>shkkeiHotel</span>
+          <span>StarellaHotel</span>
           <div className="reservation_box">
             <Link to="/reservation/guide">Reservation Now</Link>
           </div>
