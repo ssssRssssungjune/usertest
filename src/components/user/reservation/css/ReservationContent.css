@@ -1,13 +1,43 @@
 /* ReservationContent.css */
 #rservationContent{
-    padding-top: 220px;
+    padding-top: 50px;
     padding-bottom: 220px;
     background-color: rgba(0,0,0,0.5);
-    
+    width: 50% !important; /* 테이블 너비를 현재의 70%로 설정 */
+    margin: 0 auto; /* 테이블 가운데 정렬 */
+    border-collapse: collapse; /* 경계선 축소 */
 }
 
 #rservationContent #guideTable{
     --bs-table-bg: rgba(0,0,0,0.5);
     --bs-table-color: rgba(255,255,255,0.7);
     
+}
+
+#guideTable th,
+#guideTable td {
+  letter-spacing: 1px;
+  padding: 1px;
+  text-align: center;
+}
+#guideTable thead{
+    font-weight: bold;
+}
+.container {
+    font-size: 12px;
+    --bs-table-color: rgba(255,255,255,0.5);
+    color:rgba(255,255,255,0.7);
+    /* border: 2px solid #6df568cc; */
+}
+.border{
+    --bs-table-color: rgba(255,255,255,0.5);
+}
+
+#sample_title{
+    /* border: 2px solid #f4f76bcc; */
+ font-weight: bold;
+}
+.text-center {
+    color:rgba(255,255,255,0.9);
+   
 }

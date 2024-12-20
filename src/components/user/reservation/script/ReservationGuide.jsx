@@ -55,17 +55,18 @@ function ReservationGuide(){
 
     return(
         <>
-            <div className="container border p-3 m-3">
+        <h1 className="text-center my-1">Reservation Info</h1>
+            <div className="container border p-2 m-2">
                 <Table id="guideTable" bordered>
-                    <thead>
+                <thead>
                     <tr>
-                        <th rowSpan="2">객실명</th>
-                        <th colSpan="2">인원</th>
-                        <th rowSpan="2">1박요금</th>
+                        <th rowSpan="2"><strong>객실명</strong></th>
+                        <th colSpan="2"><strong>인원</strong></th>
+                        <th rowSpan="2"><strong>1박요금</strong></th>
                     </tr>
                     <tr>
-                        <th>기준</th>
-                        <th>최대</th>
+                        <th><strong>기준</strong></th>
+                        <th><strong>최대</strong></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -83,7 +84,7 @@ function ReservationGuide(){
                 </Table>
             </div>
             {GuideText.map((item,index)=>
-                (<div key={index} className="container border p-3 m-3">
+                (<div key={index} className="container border p-2 m-2">
                     <p id="sample_title" className="p-1">{item.title}</p>
                     <div>
                         {item.content.map((text,secIndex)=>(
