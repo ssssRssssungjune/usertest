@@ -3,12 +3,15 @@ import "../css/PaymentContent.css";
 import { useEffect, useState } from "react";
 import { Button, Col, Form, Modal, Row, Table } from "react-bootstrap";
 import PaymentChooseModal from "./PaymentChooseModal";
+import { useLocation } from "react-router-dom";
 
 
 export default function PaymentContent() {
 const [reservationData, setReservationData] = useState(null);
 const [reservationId, setReservationId] = useState("");
-const [sendReservationId, setSendReservationId] = useState("1");
+// const [sendReservationId, setSendReservationId] = useState("1");
+const location = useLocation();
+const {resReservationId} = location.state.key;
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
@@ -24,7 +27,7 @@ const [selectedPayment, setSelectedPayment] = useState(null);
 useEffect(() => {
   const fetchReservationData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/payments/reservationList/${sendReservationId}`, {
+      const response = await fetch(`http://localhost:8080/api/users/payments/reservationList/${resReservationId}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +47,7 @@ useEffect(() => {
   };
 
   fetchReservationData();
-}, [sendReservationId]);
+}, []);
 
 // 로딩, 에러, 예약 데이터가 없을 때 처리
 if (loading) return <div>Loading...</div>;
@@ -57,9 +60,9 @@ const handleReservationIdChange  = (event) => {
 }
 
 // 조회 버튼 클릭하면 현재 입력된 reservationId값 보내기.
-const handleReservationIdSend = () => {
-  setSendReservationId(reservationId)
-}
+// const handleReservationIdSend = () => {
+//   setSendReservationId(reservationId)
+// }
 
 // 결제 방식 선택
 const handlePaymentChange = (e) => {
@@ -79,9 +82,9 @@ const handleSubmit = async () => {
   }
 
    // PayPal 결제 방식 선택 시
-   if (selectedPayment === 'payment_paypal' && sendReservationId) {
+   if (selectedPayment === 'payment_paypal' && resReservationId) {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/paypal/checkout/${sendReservationId}`, {
+      const response = await fetch(`http://localhost:8080/api/users/paypal/checkout/${resReservationId}`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -118,7 +121,7 @@ return (
             <div id="container_payment" className="text-center">
               <div>
                 <h5 className="title">예약 정보</h5>
-                <Form>
+                {/* <Form>
                   <Form.Group as={Row} className="mb-3 justify-content-center d-flex gap-2 ">
                     <Col sm="4" className="d-flex justify-content-center align-items-center">
                       <Form.Control 
@@ -135,7 +138,7 @@ return (
                       >조회</Button>
                     </Col>
                   </Form.Group>
-                </Form>
+                </Form> */}
                 <Table responsive="sm" bordered>
                   <thead>
                     <tr>

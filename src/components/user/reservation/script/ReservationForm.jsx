@@ -1,5 +1,5 @@
 import { toDate, setDay } from "date-fns";
-import { Link, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import CustomCalendar from "./CustomCalendar";
 import { useEffect, useState } from "react";
 import { customFetch, REST } from "../../../../util/customFetch";
@@ -24,6 +24,8 @@ function ReservationForm(){
             kid : 0
         }
     );
+
+    const navi = useNavigate();
 
     useEffect(()=>{
         const initList = [...reservationPeriodList];
@@ -97,13 +99,16 @@ function ReservationForm(){
 
         console.log(data);
         const fetchReservation = async () => {
-            const res = customFetch("http://localhost:8080/api/reservation/",data,REST.POST);
+            const res = await customFetch("http://localhost:8080/api/users/reservation",data,REST.POST);
 
-            if(res !== null){
-                console.log(res);
-            }
+            // if(res !== null){
+            //     console.log(res.message);
+            //     console.log(res.reservationId);
+            // }
+
+            navi("/payment",{state:{key:{resReservationId : res.reservationId}}});
         }
-
+        
         fetchReservation();
     }
 
