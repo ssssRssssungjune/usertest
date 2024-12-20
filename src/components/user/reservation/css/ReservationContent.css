@@ -3,9 +3,11 @@
     padding-top: 220px;
     padding-bottom: 220px;
     background-color: rgba(0,0,0,0.5);
+    
 }
 
 #rservationContent #guideTable{
     --bs-table-bg: rgba(0,0,0,0.5);
-    --bs-table-color: #ffffff;
+    --bs-table-color: rgba(255,255,255,0.7);
+    
 }

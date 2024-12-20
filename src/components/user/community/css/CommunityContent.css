@@ -14,31 +14,26 @@
   width: 80%;
   max-width: 800px;
   padding: 20px;
-  gap: 30px; /* 간격 추가 */ 
+  gap: 30px; 
+  /* border: 3px solid #ccc; */
 }
 .Community_list li.Community_li{
-  height: 300px;
+  position: absolute;
+  margin-top: 0;
+  height: 80px;
   color: rgba(255,255,255,0.6);
   font-size:50px;
   text-align: center;
-  /* transform: translateY(-150px); */
-  transform: translateY(-284px);
+  transform: translateY(-215px);
+  /* border: 3px solid #4ce691; */
 }
-/* .Community_list p {
-  width: 100%;
-  font-size: 11px;
-  height: 500px;
-  padding: 15px;
-  line-height: 2;
-} */
+
 #usersCommunityContent {
   max-width: 1200px;
-  /* min-width: 1200px; */
   min-width: 800px;
   margin: 0 auto;
-  margin-top:15px;
   margin-bottom: 60px;
-  /* padding: 0 50px; */
+  /* border: 3px solid #f184ff; */
 }
 /* #usersCommunityContent .table-height-fixed {
   margin-bottom: 10px;
