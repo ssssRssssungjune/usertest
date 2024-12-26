@@ -41,7 +41,7 @@ useEffect(() => {
   if (isFirstLoad.current) {
     fetchData();
     isFirstLoad.current = false;
-  } else { // 첫 로딩 이후, 페이지 변경 시 데이터 로드
+  } else { // 첫 로딩 이후, 페이지 변경 시 데이터 1로드
     fetchData();
   }
 }, [fetchUrl, fetchData]);
